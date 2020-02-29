@@ -1,0 +1,42 @@
+<tbody id="list">
+<tr>
+    <td><input name="Fruit" type="checkbox" value="1"> 1</td>
+</tr>
+<tr>
+    <td><input name="Fruit" type="checkbox" value="2"> 2</td>
+</tr>
+</tbody>
+
+<input type="radio" value="1" name="radOnlineType" id="rad1">第一批次
+<input type="radio" value="2" name="radOnlineType" id="rad2">第二批次
+
+<input type="button" value="获得选中的所有值" class="btn" id="getValue">
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/JavaScript">
+    $(function () {
+        //获取选中选项的值
+        $("#getValue").click(function () {
+            // valArr = [];
+            // $("#list:checkbox[checked]").each(function(i){
+            //   valArr[i] = $(this).val();
+            // });
+            // var vals = valArr.join(',');
+            // alert(vals);
+            var onlineType = $('input[name="radOnlineType"]:checked').val();
+            alert(onlineType);
+            if (onlineType == undefined) {
+                alert("请选择上线批次");
+                return;
+            }
+
+
+            //     obj = document.getElementsByName("Fruit");
+            //     check_val = [];
+            //     for(k in obj){
+            //         if(obj[k].checked)
+            //             check_val.push(obj[k].value);
+            //     }
+            //     alert(check_val.length);
+        });
+    });
+</script>

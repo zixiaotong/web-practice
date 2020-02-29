@@ -1,0 +1,18 @@
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script type="text/JavaScript">
+    var t1;
+    var a = 0;
+    $(function () {
+        t1 = window.setInterval(readlog, 2000);
+    });
+
+    function readlog() {
+        console.log("aaa");
+        a = a + 1;
+        console.log(a);
+        if (a == 3) {
+            window.clearInterval(t1);
+        }
+    }
+</script>
+<input type="hidden" id="firstTime">

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点赞功能</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="box">
+        <div class="number"><i class="init" data-boolean="false">4</i></div>
+        <div class="icon">
+            <span class="left"></span>
+            <span class="top"></span>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/systemjs/0.21.0/system-production.js"></script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+    SystemJS.import('./js/Thunmb.js').then(function(){
+        $(".icon").click(()=>{
+            let son = new Thunmb($(".init"));
+            son.private();
+        })
+    })
+</script>
+</html>

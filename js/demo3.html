@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var obj = {
+			"total":4,
+			"json" : [{
+				"id": 10,
+				"name": "王峰",
+				"phone": "13726384392",
+				"email": "feng@qq.com",
+				"relation": "家人"
+			}, {
+				"id": 8,
+				"name": "王小五",
+				"phone": "18727483923",
+				"email": "wwu@qq.com",
+				"relation": "同事"
+			}, {
+				"id": 6,
+				"name": "王小二",
+				"phone": "13749274839",
+				"email": "xiaoer@qq.com",
+				"relation": "同学"
+			}, {
+				"id": 1,
+				"name": "王晓",
+				"phone": "13141215079",
+				"email": "wangxiao@qq.com",
+				"relation": "同事"
+			}]
+		};	
+	
+	    console.log(obj);     
+		$('#tb tr:gt(0)').remove(); //删除之前的数据				                
+		var  str  =  '';                
+		for (var i=0; i<obj.total; i++){
+			str += '<tr> <td>'+ obj.json[i].id  +'</td> <td>'+ obj.json[i].name  +'</td> <td>'+ obj.json[i].phone  +'</td> <td>'+ obj.json[i].email +'</td> <td>'+ obj.json[i].relation +'</td> <td>----</td> </tr>'
+		}
+		
+		$('#tb').append(str); 	
+			
+		
+	});
+	
+</script>
+</head>
+<body>
+	<table id="tb" border="1" style="border-collapse: collapse;width:590px;">
+        <tr>
+          <th>序号</th>
+          <th>姓名</th>
+          <th>电话</th>
+          <th>邮箱</th>
+          <th>关系</th>
+          <th>操作</th>
+        </tr>
+    </table>
+</body>
+</html>

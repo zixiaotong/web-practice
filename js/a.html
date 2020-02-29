@@ -1,0 +1,39 @@
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/JavaScript">
+    //    $(function () {
+    //       var a = [];
+    //       var b = a;
+    //       b[0]=1;
+    //       console.log(a[0]);
+    //       console.log(b[0]);
+    //       console.log(a===b);
+    //    });
+    //
+    //    function func(arr1, arr2) {
+    //        let newArr = [];
+    //        arr1.map((item, index) => {
+    //            for(let i=0;i<arr2.length; i++){
+    //            newArr.push(item + arr2[i]);
+    //        }
+    //    });
+    //        console.log(newArr);
+    //    }
+    //    func(['1', '2','3'], ['a', 'b','c']);
+
+    function loseHashCode(str) {
+        var hash = "";
+        for (i = 0; i < str.length; i++) {
+            char = str.charCodeAt(i);
+            hash += char;
+        }
+        return hash;
+    }
+
+//    console.log(loseHashCode("4" + "5") == 5253);
+//    console.log(loseHashCode("4" + "5"));
+//    console.log(loseHashCode("5" + "4"));
+//
+//    console.log(loseHashCode("45"));
+//    console.log(loseHashCode("54"));
+    console.log(loseHashCode("8"+"b"));
+</script>

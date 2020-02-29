@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" class="btn btn-w-m btn-primary" style="margin-left: 3px;" onclick="linkArticle('1')" id="a">a
+</button>
+<button type="button" class="btn btn-w-m btn-primary" style="margin-left: 3px;" onclick="linkArticle('2')" id="b">b
+</button>
+<button type="button" class="btn btn-w-m btn-primary" style="margin-left: 3px;" onclick="linkArticle('3')" id="c">c
+</button>
+<div id="divid">
+
+</div>
+</body>
+</html>
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script type="text/JavaScript">
+    var pathname = window.document.location.pathname;
+
+    function linkArticle(id) {
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: 'www.baidu.com',
+            success: function (data) {
+                $("#divid").html(data);
+            },
+            error: function (data) {
+                alert(data)
+            }
+        });
+    }
+
+</script>
