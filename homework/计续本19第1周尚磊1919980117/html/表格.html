@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <title>表格</title>
 </head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .tr {
+        text-align: left;
+    }
+    th:nth-child(1) {
+        width: 60px;
+    }
+</style>
 <body>
-<table border="1" width="100%">
-    <tr align="center" border="2">
+<table width="100%" border="1px solid #ccc">
+    <tr>
         <th><input type="checkbox">全选</th>
         <th>商品名</th>
         <th>价格</th>
@@ -15,8 +27,8 @@
     </tr>
     <tr>
         <th><input type="checkbox"></th>
-        <th align="left" >
-            <img align="left" src="../img/1.jpg">
+        <th class="tr">
+            <img src="../img/1.jpg">
             <a href="#">上衣1</a>
         </th>
         <th>￥59</th>
@@ -27,12 +39,36 @@
     </tr>
     <tr>
         <th><input type="checkbox"></th>
-        <th align="left" >
-            <img align="left" src="../img/2.jpg">
+        <th class="tr">
+            <img src="../img/2.jpg">
             <a href="#">上衣2</a>
         </th>
         <th>￥59</th>
         <th>北京</th>
+        <th>
+            <button>删除</button>
+        </th>
+    </tr>
+    <tr>
+        <th><input type="checkbox"></th>
+        <th class="tr">
+            <img src="../img/3.jpg">
+            <a href="#">上衣3</a>
+        </th>
+        <th>￥23</th>
+        <th>上海</th>
+        <th>
+            <button>删除</button>
+        </th>
+    </tr>
+    <tr>
+        <th><input type="checkbox"></th>
+        <th class="tr">
+            <img src="../img/4.jpg">
+            <a href="#">上衣4</a>
+        </th>
+        <th>￥29</th>
+        <th>广东</th>
         <th>
             <button>删除</button>
         </th>
