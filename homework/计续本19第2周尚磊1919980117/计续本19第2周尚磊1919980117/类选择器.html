@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类选择器</title>
+    <style>
+        .fontcolor {
+            font-family: "隶书";
+            color: red
+        }
+
+        p.a {
+            font-family: "宋体";
+            color: red;
+        }
+
+        *.b {
+            font-family: "隶书";
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1 class="fontcolor">标题1</h1>
+
+<p class="a">利用class引用a样式，展示为红色</p>
+
+<p>
+<h3 class="a">应用a样式，但a样式只能在p标记中使用，所以显示为系统默认</h3></p>
+
+<p>
+<h3 class="b">应用b样式，b样式可以在整个html文件中控制标记，显示为蓝色隶书</h3></p>
+
+</body>
+</html>
