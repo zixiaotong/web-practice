@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+    <style>
+        .poem1 {
+            position: relative;
+            display: block;
+            width: 375px;
+            height: 200px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-left-style: double;
+            border-right-style: double;
+            border-bottom-width: 15px;
+            border-top-width: 50px;
+            border-left-width: 15px;
+            border-right-width: 15px;
+            border-color: #600;
+            margin: 30px auto; /*让左右边距设置成auto，自适应*/
+            padding: 30px 50px;
+        }
+
+        .poem2 {
+            list-style-type: none;
+            display: block;
+            /*float:right;*/
+            /*采用相对定位实现同样定位效果*/
+            position: relative;
+            left: 200px;
+            line-height：2em;
+            color: #33333;
+
+            font-size: 14px;
+
+        }
+
+        .ul1 {
+            list-style-type: none;
+        }
+
+        span {
+            text-decoration: underline;
+            font-size: 1em;
+            color: #DC143C;
+            text-align: left;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        img {
+            float: right;
+            width: 100px;
+            height: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="poem1">
+    <p>
+        <span>清平乐 六盘山</span>
+        <img src="毛泽东_清平乐.jpg">
+    </p>
+    <ul class="ul1" style="font-weight: bold">
+        <li>天高云淡</li>
+        <li>望断南飞燕</li>
+        <li>不到长城非好汉</li>
+        <li>屈指行程两万里</li>
+    </ul>
+</div>
+
+
+<font size="5"><span>毛泽东</span></font>
+<div class="poem2">
+    <p>六盘山上高峰，红旗漫卷西风。</p>
+    <p>今日长缨在手，何时缚住苍龙？</p>
+
+</body>
+</html>
