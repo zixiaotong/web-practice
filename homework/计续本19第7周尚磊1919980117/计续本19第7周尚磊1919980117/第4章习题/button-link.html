@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>css按钮超链接</title>
+    <style>
+        a { /*统一设置所有的样式*/
+            font-family: Arial; /*字体、字号、水平居中、外边距*/
+            font-size: .8em;
+            text-align: center;
+            margin: 3px;
+        }
+
+        a:link, a:visited { /*超链接的正常状态，被访问过的样式*/
+            color: #A62020; /*文字颜色内边距，背景色，无下划线*/
+            background-color: #ecd8db;
+            padding: 4px 10px 4px 10px;
+            text-decoration: none;
+            border-top: 1px solid #EEEEEE; /*边框实现阴影效果*/
+            border-left: 1px solid #EEEEEE;
+            border-bottom: 1px solid #717171;
+            border-right: 1px solid #717171;
+        }
+
+        a:hover { /*鼠标经过时的超链接*/
+            color: #821818; /*改变文字颜色*/
+            padding: 5px 8px 3px 12px; /*改变文字的位置*/
+            background-color: #e2c4c9; /*改变背景颜色*/
+            border-top: 1px solid #717171; /*边框变换，实现按下去的效果*/
+            border-left: 1px solid #717171;
+            border-bottom: 1px solid #EEEE;
+            border-right: 1px solid #EEEE;
+        }
+    </style>
+</head>
+
+<body>
+<a href="#">首页</a>
+<a href="#">学校概况</a>
+<a href="#">部门院系</a>
+<a href="#">教育教学</a>
+<a href="#">科学研究</a>
+<a href="#">招生就业</a>
+<a href="#">学科建设</a>
+</body>
+</html>
