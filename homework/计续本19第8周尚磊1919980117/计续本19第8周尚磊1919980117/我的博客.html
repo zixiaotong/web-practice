@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的博客</title>
+    <style>
+        /*样式重置*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            background-color: #000;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #container {
+            width: 760px;
+            margin: 2px auto 0px auto;
+            position: relative;
+            background-color: #fff;
+        }
+
+        #global {
+            width: 760px;
+            height: 163px;
+            background: #9ac7ff url(image/banner.jpg) no-repeat top;
+        }
+
+        #global ul {
+            position: absolute;
+            left: 400px;
+            top: 145px;
+        }
+
+        #global li {
+            float: left;
+            padding: 0px 6px;
+            list-style-type: none;
+        }
+
+        #global a:link, #global a:visited {
+            color: #004a87;
+            text-decoration: none;
+        }
+
+        #global a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #param {
+            width: 210px;
+            float: left;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #param div#author {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        div#author p.myPic {
+            margin-bottom: 8px;
+        }
+
+        div#author p.myPic img {
+            border: 1px solid #444;
+            padding: 2px
+        }
+
+        div#author p.authorName {
+            border-bottom: 1px dashed #999;
+            border-top: 1px dashed #999;
+            padding: 3px 0px;
+        }
+
+        #param div h4 {
+            font-size: 12px;
+            background: url(image/leftBg.jpg) no-repeat;
+            padding: 6px 0px 5px 27px
+        }
+
+        #param div ul {
+            margin: 5px 15px 0px 15px;
+        }
+
+        #param div ul li {
+            border-bottom: 1px dashed #999;
+            padding: 2px 0px 2px 25px;
+            list-style-type: none;
+            background: url(image/icon.jpg) no-repeat 5px 0px;
+            background-size: 16px 16px;
+        }
+
+        #param div ul li a:link, #param div ul li a:visited {
+            color: #000;
+            text-decoration: none
+        }
+
+        #param div ul li a:hover {
+            color: #008cff;
+            text-decoration: underline
+        }
+
+        #main {
+            width: 510px;
+            float: right;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #main div {
+            margin: 20px 0px 30px 0px;
+        }
+
+        #main div h3 {
+            border-bottom: 1px dotted #999;
+            font-size: 15px;
+            padding-bottom: 3px;
+        }
+
+        #main div h3 a:link, #main div h3 a:visited {
+            color: #662900;
+            text-decoration: none;
+        }
+
+        #main div h3 a:hover {
+            color: #0072ff;
+        }
+
+        #main p.author {
+            text-align: right;
+            color: #888;
+            padding: 2px 5px 2px 0px;
+        }
+
+        #main p.content {
+            padding: 10px 10px 10px 10px;
+        }
+
+        /*取消浮动影响*/
+        #foot {
+            clear: both;
+            text-align: center;
+            background-color: #daeeff;
+            color: #004a87;
+        }
+
+        #foot p {
+            padding: 8px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="global">
+        <ul>
+            <li><a href="#">个人首页</a></li>
+            <li><a href="#">控制面板</a></li>
+            <li><a href="#">我的文章</a></li>
+            <li><a href="#">我的相册</a></li>
+            <li><a href="#">我的圈子</a></li>
+            <li><a href="#">给我留言</a></li>
+        </ul>
+    </div>
+    <div id="param">
+        <div id="author">
+            <p class="myPic"><img src="image/author.jpg" width="160px" height="240px"/></p>
+            <p class="authorName">作者名字</p>
+        </div>
+        <div id="category">
+            <h4><span>我的文章分类</span></h4>
+            <ul>
+                <li><a href="#">个人随笔</a></li>
+                <li><a href="#">美术设计</a></li>
+                <li><a href="#">CSS样式风格</a></li>
+                <li><a href="#">Alax学习心得</a></li>
+                <li><a href="#">新疆游记</a></li>
+                <li><a href="#">学生节</a></li>
+                <li><a href="#">职业生涯</a></li>
+            </ul>
+        </div>
+        <div id="lasttest">
+            <h4><span>最新文章列表</span></h4>
+            <ul>
+                <li><a href="#">又是一年银杏黄</a></li>
+                <li><a href="#">迎新小计</a></li>
+                <li><a href="#">beep饭局</a></li>
+                <li><a href="#">夜访中戏小计</a></li>
+                <li><a href="#">植物圈看郁金香</a></li>
+                <li><a href="#">玉渊潭看花</a></li>
+                <li><a href="#">学校的春天</a></li>
+                <li><a href="#">美术馆小计</a></li>
+                <li><a href="#">巧学巧用Flash</a></li>
+            </ul>
+        </div>
+        <div id="comment">
+            <h4><span>最新评论</span></h4>
+            <ul>
+                <li><a href="#">[beep]勘误</a></li>
+                <li><a href="#">fresheqqsre一下</a></li>
+                <li><a href="#">第一张尤zan</a></li>
+                <li><a href="#">挺好挺好</a></li>
+                <li><a href="#">这里有坑</a></li>
+                <li><a href="#">博士加油</a></li>
+            </ul>
+        </div>
+        <div id="end">
+            <h4><span>友情链接</span></h4>
+            <ul>
+                <li><a href="#">闪客帝国</a></li>
+                <li><a href="#">自由空间</a></li>
+                <li><a href="#">一起一起</a></li>
+                <li><a href="#">从明天起</a></li>
+                <li><a href="#">纸飞机</a></li>
+                <li><a href="#">下一站</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div class="article">
+            <h3><a href="#">又是一年银杏黄</a></h3>
+            <p class="author">isaac @2021-04-18 10:10:10</p>
+            <p class="content">
+                第八周作业<br/><br/>
+
+                第八周作业<br/><br/>
+            </p>
+            <p class="show">浏览[10]评论[10]</p>
+        </div>
+        <div class="article">
+            <h3><a href="#">迎新小计</a></h3>
+            <p class="author">isaac @2021-04-18 10:10:10</p>
+            <p class="content">
+                第八周作业<br/><br/>
+
+                第八周作业<br/><br/>
+            </p>
+            <p class="show">浏览[10]评论[10]</p>
+        </div>
+        <div class="article">
+            <h3><a href="#">beep饭局</a></h3>
+            <p class="author">isaac @2021-04-18 10:10:10</p>
+            <p class="content">
+                第八周作业<br/><br/>
+
+                第八周作业<br/><br/>
+            </p>
+            <p class="show">浏览[10]评论[10]</p>
+        </div>
+
+        <div class="article">
+            <h3><a href="#">夜访中戏小计</a></h3>
+            <p class="author">isaac @2021-04-18 10:10:10</p>
+            <p class="content">
+                第八周作业<br/><br/>
+
+                第八周作业<br/><br/>
+            </p>
+            <p class="show">浏览[10]评论[10]</p>
+        </div>
+
+    </div>
+    <div id="foot">
+        <p>
+            更新时间: 2020-04-18 @All Rights Reserved
+        </p>
+    </div>
+</div>
+</body>
+</html>
