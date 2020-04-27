@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+* {padding: 0; margin:0px;}
+li{list-style:none;}
+/*body{ background:#fafafa;}*/
+#t{width:800px;margin:10px auto 0; border-collapse:collapse;font-size:12px; background:#fff;}
+#t th,td{border:1px solid #eee;}
+#t th{padding:10px 0; font-size:14px; color:#006699; background:#f6f6f6;}
+#t td{padding:5px;}
+#t img{ padding:2px; float:left;}
+#t td a{ color:#33cccc; text-decoration:none; float:left; width:220px; text-align:left; padding:25px
+ 0 0 10px;}
+#t td a:hover { color:#006699; text-decoration:underline;}
+#t span{ color:#FF9900; font-weight:bold; font-size:16px; font-family:arial;}
+#t .btn { display:block; width:43px; height:19px; padding-left:3px; overflow:hidden;
+line-height:22px; text-align:left; background:url(ico1.gif) no-repeat 0 top; font-size:12px; text-decoration:none; font-weight:normal; color:#333; margin:0 auto;}
+#t .btn:hover{ background:url(ico1.gif) no-repeat 0 bottom;}
+#t .btn_active{ display:block; width:43px; height:19px; padding-left:3px; overflow:hidden; line-height:22px; text-align:left; background:url(ico1.gif) no-repaet 0 bottom; font-size:12px; text-decoration:none; font-weight:normal; color:#333; margin:0 auto;}
+#t .btn_down{ display:block; width:43px; height:19px; padding-left:3px; overflow:hidden; line-height:22px; text-align:left; background:url(ico1.gif) no-repeat; font-size:12px; text-decoration:none; font-weight:normal; color:#333; margin: 0 auto;}
+#t .bgColor{background:#0CC}

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>表格嵌套布局</title>
+    <link href="淘宝购物.css" rel="stylesheet" type="text/css">
+    <style>
+        <!--
+        body {
+            padding: 0px;
+            margin: 0px;
+            background-color: #eaddef;
+        }
+
+        /*页面背景颜色*/
+
+        .topbanner {
+            background-color: #1e0c25;
+        }
+
+        /*顶端banner的背景色*/
+        .leftbanner {
+            width: 22%;
+            height: 330px;
+            vertical-align: top;
+            background-color: #22072c; /*左侧导航条的背景色*/
+            color: #FFFFFF;
+            text-align: left;
+            padding-left: 40px;
+            font-size: 14px;
+        }
+
+        .mainpart {
+            text-align: center;
+        }
+
+        -->
+    </style>
+</head>
+
+<body>
+<table cellpadding="0" cellspacing="1" width="100%" border="0">
+    <tr>
+        <td colspan="2" class="topbanner"><img src="banner1.jpg" border="0"></td>
+    </tr>
+    <tr>
+        <td class="leftbanner">
+            <br><br>首页<br><br>分类讨论
+            <br><br>谈天说地<br><br>精华区
+            <br><br>我的信箱<br><br>休闲娱乐
+            <br><br>立即注册<br><br>离开本站
+        </td>
+        <td class="mainpart">
+            <table id="t">
+                <thead>
+                <tr>
+                    <th>
+                        <lable><input type="checkbox"/>全选</lable>
+                    </th>
+                    <th>商品名</th>
+                    <th width="70"><a class="btn" href="#">价格</a></th>
+                    <th width="70"><a class="btn" href="#">地区</a></th>
+                    <th>功能</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td align="center" width="60"><input type="checkbox"/></td>
+                    <td align="center"><img src="1.jpg" alt="商品一"/ longdesc="http://www.cctv.com">
+                        <a href="http://www.cctv.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a>
+                    </td>
+                    <td align="center"><span>&yen;59.00</span></td>
+                    <td align="center">北京</td>
+                    <td align="center"><input type="button" value="删除"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="60"><input type="checkbox"/></td>
+                    <td align="center"><img src="2.jpg" alt="商品二"/ longdesc="http://www.cctv.com">
+                        <a href="http://www.cctv.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a>
+                    </td>
+                    <td align="center"><span>&yen;74.00</span></td>
+                    <td align="center">天津</td>
+                    <td align="center"><input type="button" value="删除"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="60"><input type="checkbox"/></td>
+                    <td align="center"><img src="3.jpg" alt="商品三"/ longdesc="http://www.cctv.com">
+                        <a href="http://www.cctv.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a>
+                    </td>
+                    <td align="center"><span>&yen;38.00</span></td>
+                    <td align="center">石家庄</td>
+                    <td align="center"><input type="button" value="删除"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="60"><input type="checkbox"/></td>
+                    <td align="center"><img src="4.jpg" alt="商品四"/ longdesc="http://www.cctv.com">
+                        <a href="http://www.cctv.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a>
+                    </td>
+                    <td align="center"><span>&yen;50.00</span></td>
+                    <td align="center">上海</td>
+                    <td align="center"><input type="button" value="删除"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="60"><input type="checkbox"/></td>
+                    <td align="center"><img src="1.jpg" alt="商品一"/ longdesc="http://www.cctv.com">
+                        <a href="http://www.cctv.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a>
+                    </td>
+                    <td align="center"><span>&yen;59.00</span></td>
+                    <td align="center">北京</td>
+                    <td align="center"><input type="button" value="删除"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="60"><input type="checkbox"/></td>
+                    <td align="center"><img src="2.jpg" alt="商品二"/ longdesc="http://www.cctv.com">
+                        <a href="http://www.cctv.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a>
+                    </td>
+                    <td align="center"><span>&yen;74.00</span></td>
+                    <td align="center">天津</td>
+                    <td align="center"><input type="button" value="删除"></td>
+                </tr>
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="5">选中的商品总价是：&yen;<span>0.00</span>元</th>
+                </tr>
+                </tfoot>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
