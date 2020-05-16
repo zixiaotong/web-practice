@@ -1,0 +1,109 @@
+body, html {
+    margin: 0;
+    padding: 0; /*所有网页元素，外边距和内边距初始值为0*/
+    font-family: Arial, sans-serif; /*网页整体字体*/
+}
+
+a {
+    text-decoration: none; /*取消下划线*/
+}
+
+#body {
+    background: #E0EFFF; /*页面背景色*/
+}
+
+.headerBanner img {
+    width: 100%; /*让整个css下的图片填充适应屏幕*/
+}
+
+.addbg {
+    background: url(img/mainbg.jpg) no-repeat center; /*设置背景图片，仅展示一次 且居中*/
+    background-size: 2560px 100%; /* 规定设置背景图片的尺寸*/
+}
+
+.conmain {
+    width: 1100px; /*宽度*/
+    margin: 0 auto; /*居中*/
+}
+
+.cable {
+    margin-top: -139px; /*设置外边距*/
+    padding-top: 200px; /*设置内边距*/
+}
+
+/**/
+.cab_tle {
+    color: #fff; /*颜色*/
+    font-size: 60px; /*字体大小*/
+    text-align: center; /*居中对齐*/
+    margin-bottom: 70px; /*下标边距 和下面元素的距离*/
+    font-weight: bold; /*定义粗体字符*/
+    line-height: 70px; /*行间的距离*/
+}
+
+.cab_lis {
+    display: flex; /*使用弹性布局*/
+    justify-content: space-between; /*两边对齐*/
+    flex-wrap: wrap; /*支持换行*/
+    width: 100%; /*宽*/
+}
+
+.cab_lis li {
+    width: 250px; /*设置每个li的宽*/
+    height: 265px; /*设置每个li的高*/
+    background: url(img/pwr_lsbg.png); /*设置背景图片*/
+    background-size: 100% 100%; /* 规定设置背景图片的尺寸*/
+    margin-bottom: 42px; /*下标边距 和下面元素的距离*/
+}
+
+.cab_w1 {
+    color: #fff; /*颜色*/
+    font-size: 28px; /*字体大小*/
+    height: 76px; /*高*/
+    display: flex; /*使用弹性布局*/
+    justify-content: center; /*位于容器的中心*/
+    align-items: center; /*垂直居中*/
+    padding-top: 12px; /*向上内边距*/
+    font-weight: 800; /*加粗*/
+}
+
+.cab_w1 span {
+    font-size: 40px; /*字体大小*/
+}
+
+.cab_w2 {
+    padding-left: 60px; /*左边内边距*/
+    font-size: 16px; /*字体大小*/
+    color: #666666; /*颜色*/
+    line-height: 28px; /*行高*/
+    margin-top: 14px; /*向上外边距*/
+}
+
+.ensure {
+    margin-top: 130px; /*向上外边距*/
+}
+
+.ens_main {
+    height: 582px; /*高*/
+    margin-top: 60px; /*向上外边距*/
+}
+
+.ens_box.active {
+    display: block; /*块元素*/
+}
+
+.ens_w5 {
+    text-align: center; /*文字居中*/
+    color: #666666; /*颜色*/
+    font-size: 27px; /*字体大小*/
+    margin-top: 42px; /*向上外边距*/
+}
+
+.ens_box2 {
+    margin-top: 40px; /*向上外边距*/
+}
+
+.bto_lgs {
+    margin-top: 172px; /*向上外边距*/
+    padding-bottom: 100px; /*元素下面的内边距*/
+}
