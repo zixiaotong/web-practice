@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>switch</title>
+
+
+    <script>
+
+        window.onload = function () {
+            var oTxt1 = document.getElementById('txt1')
+            var oTxt2 = document.getElementById('txt2')
+            var oBtn = document.getElementById('btn')
+
+            oBtn.onclick = function () {
+                var t1 = parseInt(oTxt1.value)
+                if (isNaN(t1) || (t1 <= 0 || t1 >= 8)) {
+                    oTxt1.value = ''
+                    oTxt2.value = ''
+                    alert('第一个数填写不正确，请填写1-7的数字')
+                    return
+                }
+                switch (t1) {
+                    case 1:
+                        oTxt2.value = '星期一'
+                        break
+                    case 2:
+                        oTxt2.value = '星期二'
+                        break
+                    case 3:
+                        oTxt2.value = '星期三'
+                        break
+                    case 4:
+                        oTxt2.value = '星期四'
+                        break
+                    case 5:
+                        oTxt2.value = '星期五'
+                        break
+                    case 6:
+                        oTxt2.value = '星期六'
+                        break
+                    case 7:
+                        oTxt2.value = '星期天'
+                        break
+                }
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+<input id="txt1" type="text"/>
+<input id="btn" type="button" value="转换为星期"/>
+<input id="txt2" type="text"/>
+
+</body>
+</html>

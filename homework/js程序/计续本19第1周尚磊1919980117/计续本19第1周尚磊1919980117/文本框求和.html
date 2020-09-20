@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>文本框求和</title>
+
+    <script>
+
+        window.onload = function () {
+            var oTxt1 = document.getElementById('txt1')
+            var oTxt2 = document.getElementById('txt2')
+            var oBtn = document.getElementById('btn')
+
+            oBtn.onclick = function () {
+                var t1 = parseInt(oTxt1.value)
+                if (isNaN(t1)) {
+                    alert('第一个数填写不正确，请填写数字')
+                    return
+                }
+                var t2 = parseInt(oTxt2.value)
+                if (isNaN(t2)) {
+                    alert('第二个数填写不正确，请填写数字')
+                    return
+                }
+                alert(t1 + t2)
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+<input id="txt1" type="text"/> +
+<input id="txt2" type="text"/>
+<input id="btn" type="button" value="sum"/>
+
+</body>
+</html>

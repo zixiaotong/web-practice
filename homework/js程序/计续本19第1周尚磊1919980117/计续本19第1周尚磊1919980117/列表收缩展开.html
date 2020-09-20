@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>列表收缩展开</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        body {
+            background-color: #f6f9fc;
+        }
+
+        .down_list {
+            width: 200px;
+            border: 1px solid #aab4bc;
+            background: url(images/down_list_h2_bg.gif) repeat-x;
+            margin: 50px auto 0;
+        }
+
+        .down_list h2 {
+            font-size: 14px;
+            font-weight: normal;
+            color: #57646e;
+            padding-left: 10px;
+            height: 25px;
+            line-height: 25px;
+            border: 1px solid #dee3e6;
+            border-top: 1px solid #f3f5f7;
+            cursor: pointer;
+        }
+
+        .down_list ul {
+            width: 200px;
+            background: #e9edf2;
+            font-size: 12px;
+        }
+
+        .down_list li {
+            width: 200px;
+        }
+
+        .down_list a {
+            display: block;
+            text-decoration: none;
+            line-height: 25px;
+            color: #6b7980;
+            padding-left: 10px;
+        }
+
+        .down_list a:hover {
+            background: #fff;
+            text-decoration: underline;
+        }
+
+        .down {
+            background: url(images/down.gif) no-repeat 180px center;
+        }
+
+        .up {
+            background: url(images/up.gif) no-repeat 180px center;
+        }
+
+    </style>
+
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn')
+            var oUl = document.getElementById('ul1')
+
+            oBtn.onclick = function () {
+                if (oUl.style.display === 'none') {
+                    oUl.style.display = 'block'
+                    oBtn.className = 'up'
+                } else {
+                    oUl.style.display = 'none'
+                    oBtn.className = 'down'
+                }
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+<div class="down_list">
+    <h2 id='btn' class="up">播放列表</h2>
+    <ul id="ul1">
+        <li><a href="#">歌曲1</a></li>
+        <li><a href="#">歌曲2</a></li>
+        <li><a href="#">歌曲3</a></li>
+        <li><a href="#">歌曲4</a></li>
+        <li><a href="#">歌曲5</a></li>
+        <li><a href="#">歌曲6</a></li>
+        <li><a href="#">歌曲7</a></li>
+        <li><a href="#">歌曲8</a></li>
+    </ul>
+</div>
+</body>
+</html>
