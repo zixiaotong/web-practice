@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例5-8</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var aA = document.getElementsByTagName("a");
+            var oUl = document.getElementById("ul1");
+            for (var i = 0; i < aA.length; i++) {
+                aA[i].onclick = function () {
+                    oUl.removeChild(this.parentNode);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<ul id="ul1">
+    <li>aaa<a href="#">删除</a></li>
+    <li>bbb<a href="#">删除</a></li>
+    <li>ccc<a href="#">删除</a></li>
+    <li>ddd<a href="#">删除</a></li>
+</ul>
+</body>
+</html>

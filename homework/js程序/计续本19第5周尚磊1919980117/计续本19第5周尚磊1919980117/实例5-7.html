@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例5-7</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oBtn = document.getElementById("btn1");
+            var oTxt = document.getElementById('txt1');
+            var oUl = document.getElementById("ul1");
+            oBtn.onclick = function () {
+                var oLi = document.createElement("li");
+                var aLi = oUl.getElementsByTagName("li");
+                oLi.innerHTML = oTxt.value;
+                oUl.insertBefore(oLi, aLi[0]);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<input id="txt1" type="text"/>
+<input id="btn1" type="button" value="创建Li"/>
+<ul id="ul1">
+    <li>aaa</li>
+</ul>
+</body>
+</html>

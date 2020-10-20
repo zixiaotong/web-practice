@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例5-9-1</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oBtn = document.getElementById("btn1");
+            var oUl = document.getElementById("ul1");
+            oBtn.onclick = function () {
+                var iStart = new Date().getTime();
+                for (var i = 0; i < 10000; i++) {
+                    var oLi = document.createElement("li");
+                    oUl.appendChild(oLi);
+                }
+                alert(new Date().getTime() - iStart);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<input id="btn1" type="button" value="直接添加"/>
+<ul id="ul1">
+
+</ul>
+</body>
+</html>

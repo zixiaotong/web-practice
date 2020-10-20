@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>replacechild</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oOldP = document.getElementsByTagName("p")[0];
+            var oBtn = document.getElementById("btn1");
+            oBtn.onclick = function () {
+                var oNewP = document.createElement('p');
+                oNewP.innerHTML = "替换后的文字";
+                oOldP.parentNode.replaceChild(oNewP, oOldP);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<p>这段文字将被替换</p>
+<input type="button" value="替换" id="btn1"/>
+
+</body>
+</html>

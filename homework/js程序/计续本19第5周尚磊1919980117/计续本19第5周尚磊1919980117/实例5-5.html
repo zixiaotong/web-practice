@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例5-5</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oBtn = document.getElementById("btn1");
+            var oUl = document.getElementById("ul1");
+            oBtn.onclick = function () {
+                var oLi = document.createElement("li");
+                oUl.append(oLi);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<input id="btn1" type="button" value="创建Li"/>
+<ul id="ul1">
+    <li></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>setAttr</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oImg = document.getElementsByTagName('img')[0];
+            oImg.onclick = function () {
+                oImg.setAttribute("src", "长城.jpg");
+                oImg.setAttribute("title", "长城");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+<img src="故宫.jpg" title="故宫"/>
+</body>
+</html>

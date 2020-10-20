@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>preSib</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oMyDearFood = document.getElementById("myDearFood");
+            var oPreSib = preSib(oMyDearFood);
+            alert(oPreSib != null ? oPreSib.firstChild.nodeValue : null);
+        }
+
+        function preSib(node) {
+            //如果node是第一个节点
+            if (node == null || node == (node.parentNode.firstElementChild || node.parentNode.firstChild)) {
+                return null;
+            }
+
+            //node不是第一个截点，向前寻找第一个元素截点
+            var tempObj = node.previousSibling;
+            while (tempObj != null && tempObj.nodeType != 1) { //非IE低版本浏览器
+                tempObj = tempObj.previousSibling;
+            }
+            return tempObj;
+        }
+    </script>
+</head>
+
+<body>
+<ul id="ul1">
+    <li>糖醋排骨</li>
+    <li>粉蒸肉</li>
+    <li id="myDearFood">板栗烧鸡</li>
+    <li>麻婆豆腐</li>
+</ul>
+</body>
+</html>
