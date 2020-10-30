@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>实例6-3.html</title>
+    <style>
+        .div1 {
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv1 = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+            var oDiv3 = document.getElementById('div3');
+            oDiv1.onclick = function () {
+                alert(getStyle(oDiv1, 'backgroundColor'));
+            }
+            oDiv2.onclick = function () {
+                alert(getStyle(oDiv2, 'backgroundColor'));
+            }
+            oDiv3.onclick = function () {
+                alert(getStyle(oDiv3, 'backgroundColor'));
+            }
+        }
+
+        function getStyle(obj, attr) {
+            if (obj.currentStyle) {
+                return obj, currentStyle[attr];
+            } else {
+                return getComputedStyle(obj, false)[attr];
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div id='div1' class='div1'>
+    <div id='div2' class='div2'>
+        <div id='div3' class='div3'>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>事件监听.html</title>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+
+            if (oBtn.attachEvent) {   //IE
+                oBtn.attachEvent("onclick", m1);
+                oBtn.attachEvent("onclick", m2);
+                oBtn.attachEvent("onclick", m3);
+            } else {
+                oBtn.addEventListener("click", m1, false);
+                oBtn.addEventListener("click", m2, false);
+                oBtn.addEventListener("click", m3, false);
+            }
+        }
+
+        function m1() {
+            alert("m1");
+        }
+
+        function m2() {
+            alert("m2");
+        }
+
+        function m3() {
+            alert("m3");
+        }
+    </script>
+</head>
+
+<body>
+<input id="btn" type="button" value="显示 "/>
+</body>
+</html>
