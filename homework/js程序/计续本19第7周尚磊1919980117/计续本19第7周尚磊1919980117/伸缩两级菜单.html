@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>伸缩两级菜单</title>
+<style>
+
+body{
+	background-color:#ffdee0;
+}
+#navigation {
+	width:200px;
+	font-family:Arial;
+}
+#navigation > ul {
+	list-style-type:none;				/* 不显示项目符号 */
+	margin:0px;
+	padding:0px;
+}
+#navigation > ul > li {
+	border-bottom:1px solid #ED9F9F;	/* 添加下划线 */
+}
+#navigation > ul > li > a{
+	display:block;						/* 区块显示 */
+	padding:5px 5px 5px 0.5em;
+	text-decoration:none;
+	border-left:12px solid #711515;		/* 左边的粗红边 */
+	border-right:1px solid #711515;		/* 右侧阴影 */
+}
+#navigation > ul > li > a:link, #navigation > ul > li > a:visited{
+	background-color:#c11136;
+	color:#FFFFFF;
+}
+#navigation > ul > li > a:hover{		/* 鼠标经过时 */
+	background-color:#990020;			/* 改变背景色 */
+	color:#ffff00;						/* 改变文字颜色 */
+}
+
+/* 子菜单的CSS样式 */
+#navigation ul li ul{
+	list-style-type:none;
+	margin:0px;
+	padding:0px 0px 0px 0px;
+}
+#navigation ul li ul li{
+	border-top:1px solid #ED9F9F;
+}
+#navigation ul li ul li a{
+	display:block;
+	padding:3px 3px 3px 0.5em;
+	text-decoration:none;
+	border-left:28px solid #a71f1f;
+	border-right:1px solid #711515;
+}
+#navigation ul li ul li a:link, #navigation ul li ul li a:visited{
+	background-color:#e85070;
+	color:#FFFFFF;
+}
+#navigation ul li ul li a:hover{
+	background-color:#c2425d;
+	color:#ffff00;
+}
+#navigation ul li ul.myHide{	/* 隐藏子菜单 */
+	display:none;
+}
+#navigation ul li ul.myShow{	/* 显示子菜单 */
+	display:block;
+}
+
+</style>
+<script>
+
+	function change() {
+		var oSecondDiv = this.parentNode.getElementsByTagName('ul')[0];	
+		
+		if (oSecondDiv.className == 'myHide') {
+			oSecondDiv.className = 'myShow';
+		} else {
+			oSecondDiv.className = 'myHide';
+		}
+	}
+
+	window.onload = function() {
+		
+		var oUl = document.getElementById('listUl');
+		var aLi = document.getElementsByTagName('li');
+		var oA;
+		for(var i = 0; i < aLi.length; i++) {
+			if (aLi[i].getElementsByTagName('ul').length) {
+				oA = aLi[i].getElementsByTagName('a')[0];
+				oA.onclick = change;
+			}
+		}
+	};
+
+</script>
+</head>
+
+<body>
+
+	<div id="navigation">
+    	<ul id="listUl">
+        	<li><a href="#">水果</a>
+            	<ul class="myHide">
+        			<li><a href="#">苹果</a></li>
+        			<li><a href="#">香蕉</a></li>
+        			<li><a href="#">葡萄</a></li>
+        			<li><a href="#">梨子</a></li>
+                </ul>
+            </li>
+        	<li><a href="#">时蔬</a>
+            	<ul class="myHide">
+        			<li><a href="#">胡萝卜</a></li>
+        			<li><a href="#">小白菜</a></li>
+        			<li><a href="#">笋瓜</a></li>
+        			<li><a href="#">茼蒿</a></li>
+        			<li><a href="#">土豆</a></li>
+                </ul>
+            </li>
+            <li><a href="#">肉类</a>
+            	<ul class="myHide">
+        			<li><a href="#">猪肉</a></li>
+        			<li><a href="#">牛肉</a></li>
+        			<li><a href="#">羊肉</a></li>
+                </ul>
+            </li>
+            <li><a href="#">海鲜</a>
+            	<ul class="myHide">
+        			<li><a href="#">基围虾</a></li>
+        			<li><a href="#">面包蟹</a></li>
+        			<li><a href="#">龙虾</a></li>
+        			<li><a href="#">三文鱼</a></li>
+        			<li><a href="#">鲍鱼</a></li>
+                </ul>
+            </li>
+            <li><a href="#">乳品</a>
+            	<ul class="myHide">
+        			<li><a href="#">伊利</a></li>
+        			<li><a href="#">特仑苏</a></li>
+        			<li><a href="#">阳光特级</a></li>
+                </ul>
+            </li>
+            <li><a href="#">杂粮</a>
+            	<ul class="myHide">
+        			<li><a href="#">稻谷</a></li>
+        			<li><a href="#">麦子</a></li>
+        			<li><a href="#">大豆</a></li>
+        			<li><a href="#">玉米</a></li>
+        			<li><a href="#">薯类</a></li>
+                </ul>
+            </li>
+            <li><a href="#">饮料</a>
+            	<ul class="myHide">
+        			<li><a href="#">肥宅快乐水</a></li>
+        			<li><a href="#">加多宝</a></li>
+        			<li><a href="#">王老吉</a></li>
+        			<li><a href="#">冰红茶</a></li>
+                </ul>
+            </li>
+            <li><a href="#">休闲</a>
+            	<ul class="myHide">
+        			<li><a href="#">葱味苏打饼干</a></li>
+        			<li><a href="#">小蛋卷</a></li>
+        			<li><a href="#">大白兔</a></li>
+        			<li><a href="#">开胃小海带</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
