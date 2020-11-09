@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>下拉列表</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        sort {
+            height: 20px;
+        }
+
+        .sort dl {
+            float: left;
+        }
+
+        .sort dt {
+            float: left;
+            font-size: 12px;
+            color: #747474;
+            font-weight: bold;
+            padding-right: 2px;
+            padding-top: 10px;
+        }
+
+        .sort dd {
+            float: left;
+            width: 109px;
+            height: 19px;
+            position: relative;
+            margin-right: 6px;
+        }
+
+        .sort h2 {
+            width: 108px;
+            height: 17px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            color: #747474;
+            font-weight: normal;
+            text-indent: 5px;
+        }
+
+        .sort a {
+            position: absolute;
+            top: 10px;
+            left: 90px;
+            width: 19px;
+            height: 19px;
+            background: url(img/shopping_bg.png) 0 -376px;
+            z-index: 2;
+        }
+
+        .sort a:hover {
+            background: url(img/shopping_bg.png) -19px -376px;
+        }
+
+        .sort ul {
+            width: 108px;
+            border: 1px solid #ccc;
+            background: #fff;
+            position: absolute;
+            top: 27px;
+            left: 0;
+            z-index: 1;
+            display: none;
+        }
+
+        .sort li {
+            font-size: 12px;
+            line-height: 20px;
+            text-indent: 5px;
+            cursor: pointer;
+        }
+
+        .sort .active {
+            background: #099;
+            color: #fff;
+        }
+
+        .sort p {
+            font-size: 12px;
+            float: right;
+            color: #747474;
+        }
+
+        .sort p strong {
+            color: #999;
+        }
+
+        .sort p span {
+            padding: 0 5px;
+        }
+
+        .color_style {
+            color: #b20e00;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+            var oSel = document.getElementById("sel1");
+            var aDd = oSel.getElementsByTagName("dd");
+            var aUl = oSel.getElementsByTagName("ul");
+            var aH2 = oSel.getElementsByTagName("h2");
+
+            for (var i = 0; i < aDd.length; i++) {
+                aDd[i].index = i;
+                aDd[i].onclick = function () {
+                    for (var i = 0; i < aUl.length; i++) {
+                        aUl[i].style.display = "none";
+                    }
+                    aUl[this.index].style.display = "block";
+
+                    var ev = ev || window.event;//阻止冒泡
+                    var This = this;
+                    document.onclick = function () {
+                        aUl[This.index].style.display = 'none';
+                    };
+                    ev.cancelBubble = true;
+                };
+            }
+
+
+            for (var i = 0; i < aUl.length; i++) {
+                (function (ul) {
+                    var aLi = ul.getElementsByTagName('li');
+                    for (var i = 0; i < aLi.length; i++) {
+                        aLi[i].onmouseover = function () {
+                            this.className = 'active';
+                        };
+                        aLi[i].onmouseout = function () {
+                            this.className = '';
+                        };
+
+                        aUl[i].index = i;
+                        aLi[i].onclick = function (ev) {
+                            var ev = ev || window.event;
+                            aH2[this.parentNode.index].innerHTML = this.innerHTML;
+                            ev.cancelBubble = true;
+                            this.parentNode.style.display = 'none';
+                        };
+                    }
+                })(aUl[i]);
+            }
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+<div id="sel1" class="sort">
+    <dl>
+        <dt>Sotr by:</dt>
+        <dd>
+            <h2>Ascending</h2>
+            <a href="javascript:;"></a>
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+            </ul>
+        </dd>
+        <dd>
+            <h2>Product Name</h2>
+            <a href="javascript:;"></a>
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+            </ul>
+        </dd>
+        <dd>
+            <h2>Brand Name</h2>
+            <a href="javascript:;"></a>
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+            </ul>
+        </dd>
+    </dl>
+</div>
+</body>
+</html>

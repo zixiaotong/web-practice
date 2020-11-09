@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>jQuery+css3叶子Tab选项卡</title>
+    <link href="css/screen.css" type="text/css" rel="stylesheet"/>
+    <script>
+
+        window.onload = function () {
+            var oTab = document.getElementById("tab");
+            var aLi = getByClass(oTab, 'menu')[0].getElementsByTagName('li');
+            var aA = getByClass(oTab, 'menu')[0].getElementsByTagName('a');
+            var aDiv = getByClass(oTab, 'box');
+
+            aA[0].className = "buttons current";
+            for (var i = 0; i < aDiv.length; i++) {
+                aDiv[i].style.display = 'none';
+            }
+
+            aDiv[0].style.display = 'block';
+
+
+            for (var i = 0; i < aA.length; i++) {
+                aA[i].index = i;
+                aA[i].onclick = function () {
+                    for (var j = 0; j < aA.length; j++) {
+                        aA[j].className = "buttons";
+                        aDiv[j].style.display = 'none';
+                    }
+
+                    this.className = "buttons current";
+                    aDiv[this.index].style.display = 'block';
+                }
+            }
+
+            function getByClass(oParent, sClassName) {
+                var aElm = oParent.getElementsByTagName("*");
+                var aArr = [];
+                for (var i = 0; i < aElm.length; i++) {
+                    if (aElm[i].className == sClassName) {
+                        aArr.push(aElm[i]);
+                    }
+                }
+
+                return aArr;
+            }
+        }
+
+
+    </script>
+
+</head>
+<body>
+<br>
+<div align="center" id="tab">
+    <div class="menu" id="menu">
+        <ul align="center">
+            <li><a href="#tab1" class="buttons">Tab 1</a></li>
+            <li><a href="#tab2" class="buttons">Tab 2</a></li>
+            <li><a href="#tab3" class="buttons">Tab 3</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <div id="tab1" class="box">
+            <em>99</em>Points is a place where you can find many useful tutorials over jQuery, PHP, Ajax, Codeigniter
+            and CSS. Its all about PHP web development. This blog is popular for its Facebook style , Youtube style and
+            many other popular tutorialse. Get latest tutorial's source code free and use them to put some stylish
+            effect to your web pages. <br/> <br/> Thanks!
+        </div>
+        <div id="tab2" class="box">
+            <em>L</em>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged.
+        </div>
+        <div id="tab3" class="box">
+            <em>T</em>here are many variations of passages of Lorem Ipsum available, but the majority have suffered
+            alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+            If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
+            hidden in the middle of text.
+        </div>
+    </div>
+</div>
+</body>
+</html>
