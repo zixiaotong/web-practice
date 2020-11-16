@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例7-1</title>
+    <script>
+        window.onload = function () {
+
+            var checkBtn = document.getElementById("choice");
+            checkBtn.onclick = function () {
+                getChoice();
+            };
+
+            var setChoiceBtn = document.getElementById("setChoice");
+
+            setChoiceBtn.onclick = function () {
+                var oForm = document.forms["myForm1"];
+                var aChoices = oForm.camera;
+                for (var i = 0; i < aChoices.length; i++) {
+                    if (aChoices[i].value == "Canon") {
+                        setChoice(i);
+                        break;
+                    }
+                }
+            };
+
+
+            function getChoice() {
+                var oForm = document.forms["myForm1"];
+                var aChoices = oForm.camera;
+                for (var i = 0; i < aChoices.length; i++) {
+                    if (aChoices[i].checked) {
+                        break;
+                    }
+                }
+                alert("您使用的相机品牌是：" + aChoices[i].value);
+            }
+
+            function setChoice(iNum) {
+                var oForm = document.forms["myForm1"];
+                oForm.camera[iNum].checked = true;
+            }
+        };
+    </script>
+</head>
+
+<body>
+<form method="post" name="myForm1">
+    您使用的相机品牌：
+
+    <p>
+        <input type="radio" name="camera" id="canon" value="Canon">
+        <label for="canon">Canon</label>
+    </p>
+
+    <p>
+        <input type="radio" name="camera" id="nikon" value="Nikon">
+        <label for="nikon">Nikon</label>
+    </p>
+
+    <p>
+        <input type="radio" name="camera" id="sony" value="Sony">
+        <label for="sony">Sony</label>
+    </p>
+
+    <p>
+        <input type="radio" name="camera" id="olympus" value="Olympus">
+        <label for="olympus">Olympus</label>
+    </p>
+
+    <p>
+        <input type="radio" name="camera" id="samsung" value="Samsung">
+        <label for="samsung">Samsung</label>
+    </p>
+
+    <p>
+        <input type="radio" name="camera" id="pentax" value="Pentax">
+        <label for="pentax">Pentax</label>
+    </p>
+
+    <p>
+        <input type="radio" name="camera" id="others" value="others">
+        <label for="others">其他</label>
+    </p>
+
+    <p>
+        <input type="button" id="choice" value="检测选中对象">
+        <input type="button" id="setChoice" value="设置为Canon">
+    </p>
+
+</form>
+</body>
+</html>

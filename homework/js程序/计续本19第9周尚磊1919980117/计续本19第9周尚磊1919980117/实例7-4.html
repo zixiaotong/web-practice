@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例7-4</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("years").selectedIndex = 0;
+            document.getElementById("months").selectedIndex = 0;
+            document.getElementById("days").selectedIndex = 0;
+            document.getElementById("months").onchange = populateDays;
+
+
+            function populateDays() {
+                var monthDays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);//1-12月最后日期
+                var monthStr = this.options[this.selectedIndex].value;//"月"下拉列表选中的value值
+                if (monthStr != "") {
+                    var theMonth = parseInt(monthStr);//转换为数值，0-11 对应 1-12月
+                    document.getElementById("days").options.length = 0;//去掉干扰列
+                    var oYear = document.getElementById("years");
+                    var iYear = parseInt(oYear.options[oYear.selectedIndex].value);//"年"下拉列表转换为数值类型
+                    var i;
+                    for (var i = 0; i < monthDays[theMonth]; i++) {
+                        document.getElementById("days").options[i] = new Option(i + 1);
+                    }
+                    //处理闰年2月份的情况
+                    if ((theMonth == 1) && (iYear % 4 == 0 && iYear % 100 != 0 || iYear % 400 == 0)) {
+                        document.getElementById("days").options[i] = new Option(i + 1);
+                        //2月，循环出来i=28,如果是闰年再加一项"29"
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+<form action="#">
+    <select id="years">
+        <option value="">Year</option>
+        <option value="0">1980</option>
+        <option value="1">1981</option>
+        <option value="2">1982</option>
+        <option value="3">1983</option>
+        <option value="4">1984</option>
+        <option value="5">1985</option>
+        <option value="6">1986</option>
+        <option value="7">1987</option>
+        <option value="8">1988</option>
+        <option value="9">1989</option>
+        <option value="10">1990</option>
+        <option value="11">1991</option>
+        <option value="12">1992</option>
+        <option value="13">1993</option>
+        <option value="14">1994</option>
+        <option value="15">1995</option>
+        <option value="16">1996</option>
+    </select>
+
+    <select id="months">
+        <option value="">Month</option>
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+    </select>
+
+    <select id="days">
+        <option value="">Day</option>
+    </select>
+</form>
+</body>
+</html>

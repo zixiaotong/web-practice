@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例7-3</title>
+    <script>
+        window.onload = function () {
+            var oSelect = document.getElementById("constellation");
+            oSelect.onchange = function () {
+                alert("您选中的是：" + oSelect[oSelect.selectedIndex].text);
+            }
+        };
+    </script>
+</head>
+
+<body>
+<select id="constellation" name="constellation">
+    <option value="Aries" selected>白羊</option>
+    <option value="Taurus">金牛</option>
+    <option value="Gemene">双子</option>
+    <option value="Cancer">巨蟹</option>
+    <option value="Leo">狮子</option>
+    <option value="Virgo">处女</option>
+    <option value="Libra">天秤</option>
+    <option value="Scorpio">天蝎</option>
+    <option value="Sagittarius">射手</option>
+    <option value="Capricorn">摩羯</option>
+    <option value="Aquairus">水平</option>
+    <option value="Pisces">双鱼</option>
+</select>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实例7-2</title>
+    <script>
+        window.onload = function () {
+            var all = document.getElementById("all");
+            var noAny = document.getElementById("noAny");
+            var inverse = document.getElementById("inverse");
+            var print = document.getElementById("print");
+
+            all.onclick = function () {
+                changeBoxes(1);
+            }
+
+            noAny.onclick = function () {
+                changeBoxes(0);
+            }
+
+            inverse.onclick = function () {
+                changeBoxes(-1);
+            }
+
+            print.onclick = function () {
+                alert(getChoice());
+            }
+
+
+            //复选框处理
+            function changeBoxes(action) {
+                var oForm = document.forms["myForm1"];
+                var oCheckBox = oForm.hobby;
+                for (var i = 0; i < oCheckBox.length; i++) {
+                    if (action < 0) {//反选
+                        oCheckBox[i].checked = !oCheckBox[i].checked;
+                    } else {//action为1时全选，为0是全不选
+                        oCheckBox[i].checked = action;
+                    }
+                }
+            }
+
+            //输出复选框选项
+            function getChoice() {
+                var oForm = document.forms["myForm1"];
+                var oCheckBox = oForm.hobby;
+                var oHobbys = "";
+                for (var i = 0; i < oCheckBox.length; i++) {
+                    if (oCheckBox[i].checked) {
+
+                        switch (i) {
+                            case 0:
+                                oHobbys += "打球\n";
+                                break;
+
+                            case 1:
+                                oHobbys += "看电视\n";
+                                break;
+
+                            case 2:
+                                oHobbys += "上网\n";
+                                break;
+
+                            case 3:
+                                oHobbys += "看书\n";
+                                break;
+
+                            case 4:
+                                oHobbys += "旅游\n";
+                                break;
+
+                            case 5:
+                                oHobbys += "听音乐\n";
+                                break;
+
+                            case 6:
+                                oHobbys += "其他";
+                                break;
+                        }
+                    }
+                }
+
+                return oHobbys;
+            }
+        };
+    </script>
+</head>
+
+<body>
+<form method="post" name="myForm1" action="addInfo.aspx">
+    您喜欢做的事情：
+    <p>
+        <input type="checkbox" name="hobby" id="ball" value="ball">
+        <label for="ball">打球</label>
+    </p>
+
+    <p>
+        <input type="checkbox" name="hobby" id="TV" value="TV">
+        <label for="TV">看电视</label>
+    </p>
+
+    <p>
+        <input type="checkbox" name="hobby" id="net" value="net">
+        <label for="net">上网</label>
+    </p>
+
+    <p>
+        <input type="checkbox" name="hobby" id="book" value="book">
+        <label for="book">看书</label>
+    </p>
+
+    <p>
+        <input type="checkbox" name="hobby" id="trip" value="trip">
+        <label for="trip">旅游</label>
+    </p>
+
+    <p>
+        <input type="checkbox" name="hobby" id="music" value="music">
+        <label for="music">听音乐</label>
+    </p>
+
+    <p>
+        <input type="checkbox" name="hobby" id="other" value="其他">
+        <label for="other">其他</label>
+    </p>
+
+    <p>
+        <input type="button" value="全选" id="all"/>
+        <input type="button" value="全不选" id="noAny"/>
+        <input type="button" value="反选" id="inverse"/>
+        <input type="button" value="输出选项" id="print"/>
+    </p>
+</form>
+</body>
+</html>
