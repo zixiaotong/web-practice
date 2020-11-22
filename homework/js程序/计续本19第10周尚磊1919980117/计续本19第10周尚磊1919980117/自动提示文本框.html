@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动提示文本框</title>
+    <link rel="stylesheet" href="css/autoPropText.css"/>
+    <script>
+        var oInputField;
+        var oPopDiv;
+        var oColorsUl;
+        var aColors = ["red", "green", "blue", "magenta", "yellow", "chocolate", "black", "aquamarine", "lime", "fuchsia", "brass", "azure", "brown", "bronze", "deeppink", "aliceblue", "gray", "copper", "coral", "feldspar", "orange", "orchid", "pink", "plum", "quartz", "purple", "antiquewith", "blanchedalmond", "blueviolet", "beige", "burlywood", "bisque", "cadetblue", "saddlebrown", "royalblue", "rosybrown", "orengered", "olivedrab", "powderblue", "peachpuff", "papayawhip", "paleturquoise", "palevioletred", "palegreen", "navyblue", "navajowhite", "palegodenrod", "violetred", "yellowgreen", "tomato", "turquoise", "thistle", "springgreen", "steelblue", "salmon", "scarlet", "silver", "violet", "snow", "tan", "chartreuse", "khaki", "mediumslateblue", "mediumvioletred", "oldlace", "maroom", "goldenrod", "wheat", "whitesmoke", "moccasin", "mistyrose", "mintcream", "midnightblue", "dimgray", "darksalmon", "slategray", "skyblue", "sienna", "seashell", "seagreen", "sandybrown", "gold", "mediumturquoise", "navy", "mediumspringgreen", "mediumseagreen", "mediumpurpul", "peru", "mediumorchid", "mediumblue", "mediumaquamarine", "maroon", "limegreen", "lightyellow", "lightsteelblue", "magenta", "lightslateblue", "lightslategray", "lightskyblue", "inen", "lightseagreen", "lightsalmon", "lightpink", "lightgray", "lightgreen", "lightgodenrodyellow", "indianred", "lavender", "lightblue", "lavenderblush", "lightcoral", "lightcyan", "lightgodenrod", "hotpink", "greenyellow", "lemonchiffon", "lawngreen", "deepskyblue", "honeydew", "golenrod", "forestgreen", "gostwhite", "gainsboro", "firebrick", "dodgerblue", "darkturquoise", "darkslateblue", "darkslategray", "darkseagreen", "darkred", "darkorchid", "darkorenge", "darkviolet", "floralwhite", "cyan", "darkgray", "cornsilk", "darkolivegreen", "darkgoldenrod", "darkblue", "darkcyan", "darkgreen", "darkhaki", "ivory", "darkmagenta", "cornfloewrblue"];
+
+        window.onload = function () {
+            aColors.sort();
+            var oInput = document.getElementById("colors");
+            oInput.onkeyup = autoMatch;
+        }
+
+        function autoMatch() {
+            initVars();
+            if (oInputField.value.length > 0) {//有输入
+                var aResult = new Array();
+                for (var i = 0; i < aColors.length; i++) {//从颜色表中找匹配的颜色
+                    //从单词开始处匹配
+                    if (aColors[i].indexOf(oInputField.value) == 0) {
+                        aResult.push(aColors[i]);
+                    }
+                }
+                if (aResult.length > 0) {
+                    showColors(aResult);
+                } else {
+                    clearColors();
+                }
+            } else {//无输入
+                clearColors();
+            }
+        }
+
+        function initVars() {
+            //初始化变量
+            oInputField = document.getElementById("colors");
+            oPopDiv = document.getElementById("popup");
+            oColorsUl = document.getElementById("colors_ul");
+        }
+
+        function showColors(aResult) {
+            clearColors();
+            oPopDiv.className = "show";
+            var oLi;
+            for (var i = 0; i < aResult.length; i++) {
+                oLi = document.createElement("li");
+                oColorsUl.appendChild(oLi);
+                oLi.appendChild(document.createTextNode(aResult[i]));
+                oLi.onmouseover = function () {
+                    this.className = "monseOver";
+                }
+                oLi.onmouseout = function () {
+                    this.className = "monseOut";
+                }
+                oLi.onclick = function () {
+                    oInputField.value = this.firstChild.nodeValue;
+                    clearColors();
+                }
+            }
+        }
+
+        function clearColors() {
+            for (var i = oColorsUl.childNodes.length - 1; i >= 0; i--) {
+                oColorsUl.removeChild(oColorsUl.childNodes[i]);
+                oPopDiv.className = "hide";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+<form method="post" name="myForm1">
+    Color:<input type="text" name="colors" id="colors"/>
+</form>
+<div id="popup">
+    <ul id="colors_ul"></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>淘宝购物商品列表</title>
+    <link type="text/css" rel="stylesheet" href="css/taobao-style.css"/>
+    <script>
+        window.onload = function () {
+            var oTable = document.getElementById("taobao_table");
+            var aTr = oTable.getElementsByTagName("tr");
+            var oForm = document.forms['form1'];
+            var aDel = oForm.elements['delete'];
+            var aCheck = oForm.elements['choice'];
+
+            changeColor();
+
+            function changeColor() {
+                for (var i = 0; i < aTr.length; i++) {//清除原有的隔行变色
+                    aTr[i].className = "";
+                }
+                for (var i = 1; i < aTr.length - 1; i++) {
+                    if (i % 2 == 0) {
+                        aTr[i].className = "bgColor";
+                    }
+                }
+            }
+
+
+            for (var i = 0; i < aDel.length; i++) {
+                aDel[i].onclick = function () {
+                    deleteRow(this);//删除所在行
+                    changeColor();//保持隔行变色
+                    getTotalPrice();//计算总价
+                }
+            }
+
+            for (var i = 0; i < aCheck.length; i++) {//还原复选框
+                aCheck[i].checked = false;
+            }
+
+            for (var i = 1; i < aCheck.length; i++) {
+                aCheck[i].onclick = function () {
+                    getTotalPrice();//计算总价
+                }
+            }
+
+            aCheck[0].onclick = function () {
+                for (var i = 1; i < aCheck.length; i++) {
+                    aCheck[i].checked = aCheck[0].checked;
+                }
+                getTotalPrice();//计算总价
+            }
+        }
+
+
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById('taobao_table').deleteRow(i);//删除行
+        }
+
+        function getTotalPrice() {
+
+            var oTable = document.getElementById("taobao_table");
+            var aTr = oTable.getElementsByTagName("tr");
+            var oForm = document.forms['form1'];
+            var aCheck = oForm.elements['choice'];
+
+            var fPrice = 0;
+            for (var i = 1; i < aCheck.length; i++) {
+                if (aCheck[i].checked) {//如果复选框被选中
+                    fPrice += parseFloat(aCheck[i].parentNode.parentNode.getElementsByTagName('span')[0].innerHTML.substring(1));
+                    console.log(fPrice);
+                }
+                aTr[aTr.length - 1].getElementsByTagName('span')[0].innerHTML = fPrice.toFixed(2);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<form name="form1">
+    <table id="taobao_table">
+        <thead>
+        <tr>
+            <th><label><input type="checkbox" name="choice"/> 全选</label></th>
+            <th>商品名</th>
+            <th width="70"><a class="btn" href="#">价格</a></th>
+            <th width="70"><a class="btn" href="#">地区</a></th>
+            <th>功能</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td align="center" width="60"><input type="checkbox" name="choice"/></td>
+            <td align="center"><img src="images/1.jpg" alt="商品一" longdesc="http://www.miaov.com"/><a
+                    href="http://www.miaov.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a></td>
+            <td align="center"><span>&yen;59.00</span></td>
+            <td align="center">北京</td>
+            <td align="center"><input type="button" value="删除" name="delete"/></td>
+        </tr>
+        <tr>
+            <td align="center"><input type="checkbox" name="choice"/></td>
+            <td align="center"><img src="images/2.jpg" alt="商品二" longdesc="http://www.miaov.com"/><a
+                    href="http://www.miaov.com/">2010秋装新款韩版女装淑女花苞波西米亚条纹连衣裙Q0070</a></td>
+            <td align="center"><span>&yen;98.00</span></td>
+            <td align="center">广东</td>
+            <td align="center"><input type="button" value="删除" name="delete"/></td>
+        </tr>
+        <tr>
+            <td align="center"><input type="checkbox" name="choice"/></td>
+            <td align="center"><img src="images/3.jpg" alt="商品三" longdesc="http://www.miaov.com"/><a
+                    href="http://www.miaov.com/">随意美妙 O.SA欧莎热卖女装2010秋新韩版纯棉短袖T恤女ST00401</a></td>
+            <td align="center"><span>&yen;33.00</span></td>
+            <td align="center">上海</td>
+            <td align="center"><input type="button" value="删除" name="delete"/></td>
+        </tr>
+        <tr>
+            <td align="center"><input type="checkbox" name="choice"/></td>
+            <td align="center"><img src="images/2.jpg" alt="商品二" longdesc="http://www.miaov.com"/><a
+                    href="http://www.miaov.com/">2010秋装新款韩版女装淑女花苞波西米亚条纹连衣裙Q0070</a></td>
+            <td align="center"><span>&yen;198.00</span></td>
+            <td align="center">广东</td>
+            <td align="center"><input type="button" value="删除" name="delete"/></td>
+        </tr>
+        <tr>
+            <td align="center" width="60"><input type="checkbox" name="choice"/></td>
+            <td align="center"><img src="images/1.jpg" alt="商品一" longdesc="http://www.miaov.com"/><a
+                    href="http://www.miaov.com/">果绿后背钩花蝴蝶镂空长袖针织衫开衫小披肩韩国气质薄2010秋新</a></td>
+            <td align="center"><span>&yen;29.00</span></td>
+            <td align="center">北京</td>
+            <td align="center"><input type="button" value="删除" name="delete"/></td>
+        </tr>
+        <tr>
+            <td align="center"><input type="checkbox" name="choice"/></td>
+            <td align="center"><img src="images/3.jpg" alt="商品三" longdesc="http://www.miaov.com"/><a
+                    href="http://www.miaov.com/">随意美妙 O.SA欧莎热卖女装2010秋新韩版纯棉短袖T恤女ST00401</a></td>
+            <td align="center"><span>&yen;44.00</span></td>
+            <td align="center">上海</td>
+            <td align="center"><input type="button" value="删除" name="delete"/></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="5">选中的商品总价是：&yen;<span>0.00</span>元</th>
+        </tr>
+        </tfoot>
+    </table>
+</form>
+</body>
+</html>
