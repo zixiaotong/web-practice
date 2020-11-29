@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>原生JS实现加载进度条</title>
+    <style>
+        #progressBox {
+            /*宽*/
+            width: 300px;
+            /*高*/
+            height: 40px;
+            /*设置边框厚度和颜色*/
+            border: 1px solid #C8C8C8;
+            position: relative;
+            /*居中*/
+            margin: 0 auto;
+            /*距离顶部100像素*/
+            margin-top: 100px;
+        }
+
+        #progressBar {
+            position: absolute;
+            /*高*/
+            height: 40px;
+            /*宽*/
+            width: 100%;
+            line-height: 40px;
+            /*内容居中展示*/
+            text-align: center;
+            clip: rect(0px, 0, 40px, 0px);
+            /*背景颜色*/
+            background: #00A1F5;
+        }
+
+        #progressText {
+            position: absolute;
+            /*宽*/
+            width: 100%;
+            /*高*/
+            height: 40px;
+            line-height: 40px;
+            /*内容居中展示*/
+            text-align: center;
+            /*字体大小*/
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function roll() {
+            //设定当前起始状态值,
+            //真实情况中用html5的onprogress和onload来完成
+            //还可以跟后台配合，通过ajax实时的返回数据
+            var iNow = 0;
+            //设定定时器
+            var timer = setInterval(function () {
+                //如果当前的值为100
+                if (iNow == 100) {
+                    //清除定时器
+                    clearInterval(timer);
+                } else {
+                    //将当前状态值累加1
+                    iNow += 1;
+                    //调用执行状态的函数,传入状态值
+                    progressFn(iNow);
+                }
+
+            }, 30);
+        }
+
+        function progressFn(cent) {
+            //获取最外层的div
+            var oDiv1 = document.getElementById('progressBox');
+            //获取内层进度条的div
+            var oDiv2 = document.getElementById('progressBar');
+            //获取内层文字发生变化时的div
+            var oDiv3 = document.getElementById('progressText');
+
+            //获取总进度条的宽度
+            var allWidth = parseInt(getStyle(oDiv1, 'width'));
+
+            //设定内层两个div的文字内容一样
+            oDiv2.innerHTML = cent + '%';
+            oDiv3.innerHTML = cent + '%';
+
+            //修改clip的的宽度值
+            oDiv2.style.clip = 'rect(0px, ' + cent / 100 * allWidth + 'px, 40px, 0px)';
+
+            //获取当前元素的属性值
+            function getStyle(obj, attr) {
+                //兼之IE
+                if (obj.currentStyle) {
+                    return obj.currentStyle[attr];
+                }
+                else {
+                    //第二个参数为false是通用的写法，目的是为了兼容老版本
+                    return getComputedStyle(obj, false)[attr];
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<!--居中并设置距离头部50像素-->
+<div style="text-align:center;margin-top: 50px;">
+    <input id="btn" type="button" value="点击加载滚动条" onclick="roll()"/>
+</div>
+<div id="progressBox">
+    <div id="progressBar">0%</div>
+    <!-- 设定第二个层以便当进度超过文字的时候，修改文字的颜色 -->
+    <div id="progressText">0%</div>
+</div>
+</body>
+
+</html>
