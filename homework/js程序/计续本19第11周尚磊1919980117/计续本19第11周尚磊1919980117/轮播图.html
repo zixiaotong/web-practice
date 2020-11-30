@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <link type="text/css" rel="stylesheet" href="css/css.css"/>
+    <script>
+        window.onload = function () {
+            var oDd = document.getElementById("ad");
+            var aLi = oDd.getElementsByTagName("li");
+            var iNow = 0;
+            var timer = setInterval(auto, 3000);
+
+            function auto() {
+                if (iNow == aLi.length - 1) {
+                    iNow = 0;
+                } else {
+                    iNow++;
+                }
+
+                for (var i = 0; i < aLi.length; i++) {
+                    fadeOut(aLi[i]);//淡出
+                }
+
+                fadeIn(aLi[iNow]);//淡入
+            }
+
+            function autoPrev() {
+                if (iNow == 0) {
+                    iNow = aLi.length - 1;
+                } else {
+                    iNow--;
+                }
+                for (var i = 0; i < aLi.length; i++) {
+                    fadeOut(aLi[i]);//淡出
+                }
+
+                fadeIn(aLi[iNow]);//淡入
+            }
+
+
+            fadeIn = function (obj) {
+                var value = 0;
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function () {
+                    var iSpeed = 5;
+                    if (value == 100) {
+                        clearInterval(obj.timer);
+                    } else {
+                        value += iSpeed;
+                        obj.style.opacity = value / 100;
+                        obj.style.filter = 'alpha(opacity=' + value + ')';
+                    }
+                }, 30);
+            }
+
+            fadeOut = function (obj) {
+                var value = 100;
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function () {
+                    var iSpeed = -5;
+                    if (value == 0) {
+                        clearInterval(obj.timer);
+                    } else {
+                        value += iSpeed;
+                        obj.style.opacity = value / 100;
+                        obj.style.filter = 'alpha(opacity=' + value + ')';
+                    }
+                }, 30);
+            }
+
+            function getByClass(oParent, sClassName) {
+                var aElm = oParent.getElementsByTagName("*");
+                var aArr = [];
+                for (var i = 0; i < aElm.length; i++) {
+                    if (aElm[i].className == sClassName) {
+                        aArr.push(aElm[i]);
+                    }
+                }
+
+                return aArr;
+            }
+
+            var oPrevBg = getByClass(oDd, 'prev_bg')[0];
+            var oNextBg = getByClass(oDd, 'next_bg')[0];
+            var oPrev = getByClass(oDd, 'prev')[0];
+            var oNext = getByClass(oDd, 'next')[0];
+
+            oPrevBg.onmouseover = function () {
+                oPrev.style.display = "block";
+                clearInterval(timer);
+            };
+
+            oPrevBg.onmouseout = function () {
+                oPrev.style.display = "none";
+                timer = setInterval(auto, 3000);
+            };
+
+            oPrev.onmouseover = function () {
+                oPrev.style.display = "block";
+                clearInterval(timer);
+            };
+
+
+            oNextBg.onmouseover = function () {
+                oNext.style.display = "block";
+                clearInterval(timer);
+            };
+
+            oNextBg.onmouseout = function () {
+                oNext.style.display = "none";
+                timer = setInterval(auto, 3000);
+            };
+
+            oNext.onmouseover = function () {
+                oNext.style.display = "block";
+                clearInterval(timer);
+            };
+
+            oPrev.onclick = function () {
+                autoPrev();
+            };
+
+            oNext.onclick = function () {
+                auto();
+            };
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+<div id="ad">
+    <a href="javascript:;" class="prev"></a>
+    <a href="javascript:;" class="next"></a>
+    <span class="prev_bg"></span>
+    <span class="next_bg"></span>
+    <ul>
+        <li style="filter:alpha(opacity=100); opacity:1;"><a href="#a1"><img src="images/1.png" alt=""/></a></li>
+        <li><a href="#a2"><img src="images/2.png" alt=""/></a></li>
+        <li><a href="#a3"><img src="images/3.png" alt=""/></a></li>
+    </ul>
+    <h2>PRODUCT TITLE</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit lacus dapibus ante mattis in adipiscing
+        nibh placerat. Cras bibendum porta diam, non dignissim sapien malesuada vitae.</p>
+    <div class="bg"></div>
+</div>
+</body>
+</html>

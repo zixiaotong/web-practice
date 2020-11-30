@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>post方式</title>
+    <script>
+        var xmlHttp;//全局变量
+        function createXMLHttpRequest() {
+            if (window.ActiveXObject) {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else if (window.XMLHttpRequest) {
+                xmlHttp = new XMLHttpRequest();
+            }
+        }
+
+        function startRequest() {
+            createXMLHttpRequest();
+            var queryString = "name=lucy&age=15&timeStamp=" + new Date().getTime();
+            xmlHttp.open("post", "9-1.aspx");
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlHttp.send(queryString);
+
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    alert("服务器返回数：" + xmlHttp.responseText);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<input type="button" value="测试异步通信" onClick="startRequest()"/>
+</body>
+</html>
