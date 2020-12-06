@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>原生JS实现加载进度条</title>
+    <style>
+        #progressBox {
+            width: 300px; /*宽*/
+            height: 40px; /*高*/
+            border: 1px solid #C8C8C8; /*设置边框厚度和颜色*/
+            position: relative; /*相对定位*/
+            margin: 0 auto; /*居中*/
+            margin-top: 100px; /*距离顶部100像素*/
+        }
+
+        #progressBar {
+            position: absolute; /*绝对定位*/
+            height: 40px; /*高*/
+            width: 100%; /*宽*/
+            line-height: 40px; /*设置行高*/
+            text-align: center; /*内容居中展示*/
+            clip: rect(0px, 0, 40px, 0px); /*裁剪元素的形状*/
+            background: #00A1F5; /*背景颜色*/
+            font-size: 20px; /*字体大小*/
+        }
+
+        #progressText {
+            position: absolute; /*绝对定位*/
+            width: 100%; /*宽*/
+            height: 40px; /*高*/
+            line-height: 40px; /*设置行高*/
+            text-align: center; /*内容居中展示*/
+            font-size: 20px; /*字体大小*/
+        }
+    </style>
+    <script>
+        function roll() {
+            //设定当前起始状态值,
+            //真实情况中用html5的onprogress和onload来完成
+            //还可以跟后台配合，通过ajax实时的返回数据
+            var iNow = 0;
+            var timer = setInterval(function () {//设定定时器
+                if (iNow == 100) {//如果当前的值为100
+                    clearInterval(timer);//清除定时器
+                } else {
+                    iNow += 1;//将当前状态值累加1
+                    progressFn(iNow);//调用执行状态的函数,传入状态值
+                }
+            }, 30);
+        }
+
+        function progressFn(cent) {
+            var oDiv1 = document.getElementById('progressBox');//获取最外层的div
+            var oDiv2 = document.getElementById('progressBar');//获取内层进度条的div
+            var oDiv3 = document.getElementById('progressText');//获取内层文字发生变化时的div
+            var allWidth = parseInt(getStyle(oDiv1, 'width'));//获取总进度条的宽度
+            //设定内层两个div的文字内容一样
+            oDiv2.innerHTML = cent + '%';
+            oDiv3.innerHTML = cent + '%';
+            //修改clip的的宽度值
+            oDiv2.style.clip = 'rect(0px, ' + cent / 100 * allWidth + 'px, 40px, 0px)';
+
+            //获取当前元素的属性值
+            function getStyle(obj, attr) {
+                if (obj.currentStyle) {//兼之IE
+                    return obj.currentStyle[attr];
+                } else {
+                    return getComputedStyle(obj, false)[attr];//第二个参数为false是通用的写法，目的是为了兼容老版本
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<!--居中并设置距离头部50像素-->
+<div style="text-align:center;margin-top: 50px;">
+    <input id="btn" type="button" value="点击加载进度条" onclick="roll()"/>
+</div>
+<div id="progressBox">
+    <div id="progressBar">0%</div>
+    <!-- 设定第二个层以便当进度超过文字的时候，修改文字的颜色 -->
+    <div id="progressText">0%</div>
+</div>
+</body>
+
+</html>
