@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动校验表单</title>
+    <style type="text/css">
+        form {
+            padding: 0px;
+            margin: 0px;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            border: 1px solid #004082;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        var xmlHttp;//全局变量
+        function createXMLHttpRequest() {
+            if (window.ActiveXObject) {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else if (window.XMLHttpRequest) {
+                xmlHttp = new XMLHttpRequest();
+            }
+        }
+
+        function startCheck(oInput) {
+            //首先判断是否有输入，没有输入直接返回并提示
+            if (!oInput.value) {
+                oInput.focus();//聚焦到用户名的输入框
+                document.getElementById("userResult").innerHTML = "User cannot be empty."
+                return;
+            }
+            //创建异步请求
+            createXMLHttpRequest();
+            var sUrl = "9.9.aspx?user=" + oInput.value.toLowerCase() + "&timestamp=" + new Date().getTime();
+            xmlHttp.open("GET", sUrl, true);
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    showResult(xmlHttp.responseText);//显示服务器结果
+                }
+                xmlHttp.send(null);
+            };
+        }
+
+        function showResult(sText) {
+            var oSpan = document.getElementById("userResult");
+            oSpan.innerHTML = sText;
+            if (sText.indexOf("already exists") >= 0) {
+                //如果用户名已被占用
+                oSpan.style.color = "red";
+            } else {
+                oSpan.style.color = "black";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+<table cellpadding="3" cellspacing="5" border="1">
+    <tr>
+        <td>username：</td>
+        <td><input type="text" name="user" onBlur="startCheck(this)"/></td>
+        <td><span id="userResult"></span></td>
+    </tr>
+    <tr>
+        <td>enter password：</td>
+        <td><input type="text" name="password1"/></td>
+
+    </tr>
+    <tr>
+        <td>confirm password：</td>
+        <td><input type="text" name="password2"/></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="register">
+            <input type="reset" value="reset">
+        </td>
+    </tr>
+</table>
+</body>
+</html>

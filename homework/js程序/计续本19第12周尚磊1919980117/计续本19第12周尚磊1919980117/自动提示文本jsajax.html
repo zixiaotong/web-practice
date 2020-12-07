@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动提示文本jsajax</title>
+    <link rel="stylesheet" href="css/autoPropText.css"/>
+    <script>
+        //考虑到很多函数都要使用，因此采用全局变量的形式
+        var oInputFiled;
+        var oPopDiv;
+        var oColorsUl;
+        var xmlHttp;
+
+        function findColors() {
+            initVars();//初始化变量
+            if (oInputFiled.value.length > 0) {
+                createXMLHttpRequest();//将用户输入发送给服务器
+                var sUrl = "9-10.aspx?sColor=" + oInputFiled.value + "&timestamp=" + new Date().getTime();
+                xmlHttp.open("GET", sUrl, true);
+                xmlHttp.onreadystatechange = function () {
+                    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                        var aResult = new Array();
+                        if (xmlHttp.responseText.split(",")) {
+                            console.log("aaa");
+                            setColors(aResult);//显示服务器结果
+                        } else {
+                            clearColors();
+                            console.log("bbb");
+                        }
+                    }
+                    xmlHttp.send(null);
+                }
+            } else {
+                clearColors();//无输入时清除提示框（例如用户按del键）
+            }
+        }
+
+        function createXMLHttpRequest() {
+            if (window.ActiveXObject) {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else if (window.XMLHttpRequest) {
+                xmlHttp = new XMLHttpRequest();
+            }
+        }
+
+        function initVars() {
+            //初始化变量
+            oInputFiled = document.forms["myForm1"].colors;
+            oPopDiv = document.getElementById("popup");
+            oColorsUl = document.getElementById("colors_ul");
+        }
+
+        function clearColors() {
+            //清楚提示内容
+            for (var i = oColorsUl.childNodes.length - 1; i >= 0; i--) {
+                oColorsUl.removeChild(oColorsUl.childNodes[i]);
+                oPopDiv.className = "hide";//#popup.hide{border:none;}
+            }
+        }
+
+        function setColors(the_colors) {
+            //显示提示框，传入的参数为匹配出来的结果组成的数组
+            clearColors();//每输入一个字母就先清除原有的提示，再继续
+            oPopDiv.className = "show";//#popup.show{border:1px solid #004a7e;}
+            var oLi;
+            for (var i = 0; i < the_colors.length; i++) {
+                //将匹配的结果逐一显示给用户
+                oLi = document.createElement("li");
+                oColorsUl.appendChild(oLi);
+                oLi.appendChild(document.createTextNode(the_colors[i]));
+                oLi.onmouseover = function () {
+                    this.className = "mouseOver";//鼠标经过时高亮
+                }
+                oLi.onmouseout = function () {
+                    this.className = "mouseOut";//离开时恢复原样
+                }
+                oLi.onclick = function () {
+                    //用户点击某个匹配项时，设置输入框为该项的值
+                    oInputFiled.value = this.firstChild.nodeValue;
+                    clearColors();//同时清除提示框
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<form method="post" name="myForm1">
+    Color:<input type="text" name="colors" id="colors" onKeyUp="findColors();">
+</form>
+<div id="popup">
+    <ul id="colors_ul">
+    </ul>
+</div>
+</body>
+</html>
