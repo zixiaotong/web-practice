@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>取值赋值合体</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $('#div1').html('hello');
+            alert($('#div1').html());
+
+            $('#div1').css('width', '200px')
+            alert($('#div1').css('width'))
+
+            alert($('li').html());
+            $('li').html('hello');
+        })
+    </script>
+</head>
+
+<body>
+<div id="div1"></div>
+<ul id="ul1">
+    <li>111</li>
+    <li>222</li>
+    <li>555</li>
+</ul>
+</body>
+</html>

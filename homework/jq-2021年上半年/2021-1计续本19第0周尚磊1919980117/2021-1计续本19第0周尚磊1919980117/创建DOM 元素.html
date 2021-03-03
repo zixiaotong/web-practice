@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>创建DOM 元素</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        //	window.onload = function(){
+        //		document.onclick=function(){
+        //			var oNewP=document.createElement("p");
+        //			var oText=document.createTextNode("这是一个感人肺腑的故事");
+        //			oNewP.appendChild(oText);
+        //			document.body.appendChild(oNewP);
+        //		}
+        //	}
+        $(function () {
+            $(document).click(function () {
+                var oNewP = $("<p>这是一个感人肺腑的故事</p>");
+                $(document.body).append(oNewP);
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>

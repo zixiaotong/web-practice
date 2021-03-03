@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jq思想2</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        //	window.onload=function(){
+        //		var oUl = document.getElementsByTagName('ul')[0];
+        //		var aLi = oUl.getElementsByTagName('li');
+        //		for(var i=0; i<aLi.length; i++){
+        //			if(aLi[i].title!=''){
+        //				aLi[i].style.background='pink';
+        //			}
+        //		}
+        //	}
+
+        $(function () {
+            $("li:first").css("background", "red");
+            $("li:eq(1)").css("background", "green");
+        })
+
+    </script>
+</head>
+
+<body>
+<ul>
+    <li>1</li>
+    <li class='box'>1</li>
+    <li class='box'>1</li>
+    <li title='hello'>1</li>
+    <li title='world'>1</li>
+</ul>
+</body>
+</html>

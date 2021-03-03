@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery方法函数化</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        //	window.onload=function(){
+        //		var oDiv = document.getElementById('div1');
+        //		oDiv.onclick=function(){
+        //			oDiv.innerHTML="div";
+        //		}
+        //	}
+
+        $(function () {
+            $('div').click(function () {
+                $(this).html('div');
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+<div id="div1">aaa</div>
+</body>
+</html>
