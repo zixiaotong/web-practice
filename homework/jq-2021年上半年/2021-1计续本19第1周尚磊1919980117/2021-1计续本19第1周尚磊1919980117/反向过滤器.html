@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>读取表单</title>
+    <script language="javascript" src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#show").click(function () {
+                //过滤掉所有被checked的input元素
+                // $("input:not(:checked").css("background","#9F0");
+
+                //过滤掉所有被checked的表单元素
+                //$(":input:not(:checked").css("background","#9f0");
+                //过滤掉所有被checked的表单元素和多行文本框
+                $(":input:not(:checked):not(textarea)").css("background", "#9F0");
+                //过滤掉所有被checked的input元素,包括checkbox和 radio的元素
+                //$("input:not(:checked):not(:radio):not(:checkbox)").css("background","#9F0");
+
+                //$("input").css("background","red");
+                // $(":input").css("background","red");
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+<form method="post" name="myForm1" action="">
+    <p>姓名：<input type="text" name="name"/></p>
+    <p>密码：<input type="password" name="passwd" id="passwd"/></p>
+    <p>最喜欢的颜色：
+        <select name="color" id="color">
+            <option value="red" selected="selected">红</option>
+            <option value="green">绿</option>
+            <option value="blue">蓝</option>
+            <option value="yellow">黄</option>
+            <option value="cyan">青</option>
+            <option value="purple">紫</option>
+        </select>
+    </p>
+    <p>性别:
+        <input type="radio" name="sex" id="male" value="male" checked="checked"/>男
+        <input type="radio" name="sex" id="female" value="female"/>女</p>
+    <p>你喜欢做什么:<br>
+        <input type="checkbox" name="hobby" id="book" value="book"/>看书
+        <input type="checkbox" name="hobby" id="net" value="net"/>上网
+        <input type="checkbox" name="hobby" id="sleep" value="sleep"/>睡觉
+    </p>
+    <p>我要留言:<br>
+        <textarea name="comments" id="comments" cols="30" rows="4"></textarea>
+    </p>
+    <p>
+        <input type="submit" name="btnSumbit" id="btnSubmit" value="Submit"/>
+        <input type="reset" name="reset" id="btnReset" value="Reset"
+    </p>
+    <br/>
+    <input id="show" type="button" value="Show Checked" class="btn"/>
+</form>
+</body>
+</html>

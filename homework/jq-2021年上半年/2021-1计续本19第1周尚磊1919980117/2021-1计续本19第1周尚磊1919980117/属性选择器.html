@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>属性选择器</title>
+    <style type="text/css">
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+    </style>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            //1。选择设置了'title"属性的a标记，将其样式设置为显示下划线
+            $("a[title]").css("text-decoration", "underline");
+            //2.将链接属性为“10-9.html”的a标记，样式设置为下划线
+            //$("a[href='10-9.html']").css("text-decoration","underline");
+            //3.将链接以“http://”开头a的标记设置显示下划线
+            //$("a[href^='http://']").css("text-decoration","underline");
+            //4.将链接以"html"结尾的a标记设置为显示下划线
+            //$("a[href$=html]").css("text-decoration","underline");
+            //5.将链接中包含“issac”字符串的设置为下划线
+            $("a[href*=isaac]").css("text-decoration", "underline");
+
+
+        })
+    </script>
+</head>
+
+<body>
+<ul>
+    <li><a href="http://www.isaac.com">www.isaac.com(设置了href)</a>
+        <ul>
+            <li>10-6.html</li>
+            <li><a href="10-7.html">10-7.html(设置了href)</a></li>
+            <li><a href="10-8.html" title="圆角矩形">10-8.html(设置了href和title)</a></li>
+            <li><a href="10-9.html">10-9.html(设置了href)</a></li>
+            <li><a href="isaac.html" title="制作中">isaac.html(设置了href和title)</a></li>
+
+        </ul>
+
+    </li>
+</ul>
+</body>
+</html>

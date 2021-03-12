@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>层叠选择器</title>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            //   $("form input").css("background","red");
+            $("form>input").css("background", "red");
+            // $("label+input").css("background","red");
+            //$("form+input").css("background","red");
+            //  $("label~input").css("background","red");
+        })
+    </script>
+</head>
+
+<body>
+<form>
+    <label>Name:</label>
+    <input id="name" type="text"/> <br/>
+    <label>Email:</label>
+    <input id="Email" type="text"/> <br/>
+    <div>
+        <label>tele:</label>
+        <input id="tele" type="text"/> <br/>
+    </div>
+    <input type="submit" value="submit"/>
+</form>
+<input type="button" value="button"/>
+</body>
+</html>

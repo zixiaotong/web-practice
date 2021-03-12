@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>位置选择器</title>
+    <style>
+        .myClass {
+            font-size: 20px;
+            color: #00c;
+            background-color: #096;
+        }
+
+        div {
+            border: 1px solid #0FF;
+        }
+    </style>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            //选择最后一个P标记
+            $("p:last").css("background", "red");
+            //选择每个div中的偶数行
+            //$("p:nth-child(even)").css("background", "red");
+            //选择页面中所有奇数P标记
+            // $("p:odd").css("background", "red");
+            //选择所有P标记中的第5个
+            //$("p:eq(4)").css("background", "red");
+            //选择3-6的P标记
+            //$("p").slice(2,6).css("background", "red");
+            //选择1-3的p标记
+            $("p").slice(0, 3).css("background", "red");
+        })
+    </script>
+</head>
+
+<body>
+<div>
+    <p>1.大礼堂</p>
+    <p>2.清华学堂</p>
+</div>
+<br/>
+<div>
+    <p>3.图书馆</p>
+</div>
+<br/>
+<div>
+    <p>4.紫荆公园</p>
+    <p>5.C楼</p>
+    <p>6.清清地下</p>
+</div>
+<br/>
+</body>
+</html>
