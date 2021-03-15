@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>is()函数</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+    <script>
+        $(function () {
+            alert($("input:checkbox").parent().is("form"));
+            alert($("div").is(":hidden"));
+        })
+    </script>
+</head>
+
+<body>
+<form><p><input type="checkbox"/></p></form>
+<div class="hide">aaa</div>
+</body>
+</html>

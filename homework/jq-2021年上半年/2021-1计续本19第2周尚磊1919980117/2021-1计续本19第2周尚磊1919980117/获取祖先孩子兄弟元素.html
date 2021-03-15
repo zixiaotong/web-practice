@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>获取祖先孩子兄弟元素</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("p").parent(".selected").css("background", "pink");
+            $("div").children(".selected").css("color", "blue");
+            $("p").prev().css("background", "yellow");
+            $('li.third-item').siblings().css('background-color', 'pink');
+        })
+    </script>
+</head>
+
+<body>
+<div><p>Hello</p></div>
+<div class="selected"><p>Hello Again</p></div>
+
+<div>
+    <span>Hello</span>
+    <p class="selected">Hello Again</p>
+    <div class="selected">And Again</div>
+    <p>And One Last Time</p>
+</div>
+
+<div><span>Hello</span></div>
+<p class="selected">Hello Again</p>
+<p>And Again</p>
+
+<ul>
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li class="third-item">list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+
+</body>
+</html>

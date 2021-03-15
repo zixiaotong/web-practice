@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>filter()函数参数</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("div").css("background", "#FCF").filter(function (index) {
+                return index == 1 || $(this).attr("id") == "fourth";
+            }).css("border", "2px solid #009");
+        });
+
+    </script>
+</head>
+
+<body>
+<div id="first"></div>
+<div id="second"></div>
+<div id="third"></div>
+<div id="fourth"></div>
+<div id="fifth"></div>
+</body>
+
+</html>

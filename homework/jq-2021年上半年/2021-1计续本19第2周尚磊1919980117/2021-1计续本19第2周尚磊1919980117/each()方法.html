@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>each()方法</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("img").each(function (index) {
+//			this.title = "这是第" + (index + 1) + "幅图，id是" + this.id; 
+                $(this).attr("title", "这是第" + (index + 1) + "张图,id是" + $(this).attr("id"));
+            })
+        })
+    </script>
+</head>
+
+<body>
+<img src="images-each/01.jpg" id="Tsinghua01">
+<img src="images-each/02.jpg" id="Tsinghua02">
+<img src="images-each/03.jpg" id="Tsinghua03">
+<img src="images-each/04.jpg" id="Tsinghua04">
+<img src="images-each/05.jpg" id="Tsinghua05">
+</body>
+</html>

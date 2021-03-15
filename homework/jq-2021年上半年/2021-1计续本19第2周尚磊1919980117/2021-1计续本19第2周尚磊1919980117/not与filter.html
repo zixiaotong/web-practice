@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>not与filter</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $(":input:not(:text):not(:password)").css("background", "red");
+//		 $("input").filter(function(index){
+//			return $(this).attr("type") != "text" && $(this).attr("type") != "password";
+//		 }).css("background","red");	
+        })
+    </script>
+</head>
+
+<body>
+<form method="post" name="myForm1" action="">
+    <p>姓名：<input type="text" name="name"/></p>
+    <p>密码：<input type="password" name="passwd" id="passwd"/></p>
+    <p>最喜欢的颜色：
+        <select name="color" id="color">
+            <option value="red" selected="selected">红</option>
+            <option value="green">绿</option>
+            <option value="blue">蓝</option>
+            <option value="yellow">黄</option>
+            <option value="cyan">青</option>
+            <option value="purple">紫</option>
+        </select>
+    </p>
+    <p>性别:
+        <input type="radio" name="sex" id="male" value="male" checked="checked"/>男
+        <input type="radio" name="sex" id="female" value="female"/>女</p>
+    <p>你喜欢做什么:<br>
+        <input type="checkbox" name="hobby" id="book" value="book"/>看书
+        <input type="checkbox" name="hobby" id="net" value="net"/>上网
+        <input type="checkbox" name="hobby" id="sleep" value="sleep"/>睡觉
+    </p>
+    <p>我要留言:<br>
+        <textarea name="comments" id="comments" cols="30" rows="4"></textarea>
+    </p>
+    <p>
+        <input type="submit" name="btnSumbit" id="btnSubmit" value="Submit"/>
+        <input type="reset" name="reset" id="btnReset" value="Reset"
+    </p>
+    <input id="show" type="button" value="Show Checked" class="btn"/>
+</form>
+</body>
+</html>

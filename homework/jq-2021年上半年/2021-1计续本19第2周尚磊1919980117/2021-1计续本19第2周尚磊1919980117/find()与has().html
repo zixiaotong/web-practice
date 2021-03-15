@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>find()与has()</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+//		$('li').has('ul').css('background-color', '#3C6');
+            $("li").find("ul").css('background-color', '#3C6');
+        })
+    </script>
+</head>
+
+<body>
+<div id="navigation">
+    <ul id="listUL">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a>
+            <ul>
+                <li><a href="#">Lastest News</a></li>
+                <li><a href="#">All News</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Sports</a>
+            <ul>
+                <li><a href="#">Basketball</a></li>
+                <li><a href="#">Football</a></li>
+                <li><a href="#">Volleyball</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Weather</a>
+            <ul>
+                <li><a href="#">Today's Weather</a></li>
+                <li><a href="#">Forecast</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Contact Me</a></li>
+    </ul>
+</div>
+</body>
+
+</html>
