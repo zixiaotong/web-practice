@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>get()函数</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .div1 {
+            background: red;
+        }
+
+        .div2 {
+            background: yellow;
+        }
+
+        .div3 {
+            background: blue;
+        }
+    </style>
+    <script>
+        $(function () {
+            var aDiv = $("div").get().reverse();
+            $(aDiv).each(function () {
+                var oNewDiv = $("<div style='background:" + $(this).css("background-color") + "'>" + $(this).html() + "</div>");
+                $(document.body).append(oNewDiv);
+            })
+        })
+    </script>
+</head>
+
+<body>
+<div class="div1">1</div>
+<div class="div2">2</div>
+<div class="div3">3</div>
+</body>
+</html>

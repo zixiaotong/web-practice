@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>动态页面</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("img").each(function (index) {
+                $(this).attr("src", "img/0" + (index + 1) + ".jpg").attr("title", "0" + (index + 1));
+            })
+        })
+    </script>
+</head>
+
+<body>
+<img>
+<img>
+<img>
+<img>
+<img>
+</body>
+
+</html>

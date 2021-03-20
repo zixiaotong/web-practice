@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>设置id值</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("div").each(function (index) {
+                $(this).attr("id", index + 1).find("span").html("id=" + $(this).attr("id"));
+            })
+        })
+    </script>
+</head>
+
+<body>
+<div>
+    "First"
+    <span></span>
+</div>
+<div>
+    "Second"
+    <span></span>
+</div>
+<div>
+    "Third"
+    <span></span>
+</div>
+</body>
+</html>

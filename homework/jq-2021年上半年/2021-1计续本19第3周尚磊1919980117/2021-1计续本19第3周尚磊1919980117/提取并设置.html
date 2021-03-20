@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>提取并设置</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            alert($("p:first").text());
+            var sString = $("p:first").text();
+            $("p:last").html("<h1>" + sString + "</h1>");
+        })
+    </script>
+</head>
+
+<body>
+<p><b>文本</b>段落<em>示</em>例</p>
+<p></p>
+</body>
+</html>

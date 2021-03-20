@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>禁用和删除按钮</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("button:eq(0)").click(function () {
+                $("button:gt(0)").attr("disabled", "true");
+                $("button:eq(3)").removeAttr("disabled");
+                $("button:eq(4)").removeAttr("disabled");
+            })
+        })
+    </script>
+</head>
+
+<body>
+<button>第一个Button</button>&nbsp;
+<button>第二个Button</button>&nbsp;
+<button>第三个Button</button>&nbsp;
+<button disabled="true">第四个Button</button>&nbsp;
+<button disabled="true">第五个Button</button>&nbsp;
+</body>
+
+</html>
