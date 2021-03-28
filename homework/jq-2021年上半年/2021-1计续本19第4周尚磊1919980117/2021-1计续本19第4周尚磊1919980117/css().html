@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>css()</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("p").mouseover(function () {
+                $(this).css("color", "red");
+            })
+
+            $("p").mouseout(function () {
+                $(this).css("color", "black");
+            })
+
+            $("img").mouseover(function () {
+                $(this).css("opacity", "0.5");
+            })
+
+            $("img").mouseout(function () {
+                $(this).css("opacity", "1.0");
+            })
+
+            $("div").css({
+                "background": "yellow",
+                "color": "black",
+                "border": "1px solid #000000"
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+<p>p</p>
+<img src="images/02.jpg"/>
+<div>div</div>
+</body>
+</html>

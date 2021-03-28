@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>addClass()与removeClass()</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <style>
+        .myclass1 {
+            border: 10px solid yellow;
+            width: 120px;
+            height: 120px;
+        }
+
+        .myclass2 {
+            border: 5px solid green;
+            width: 200px;
+            background: blue;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("div").addClass("myclass1 myclass2");
+            $("div").removeClass("myclass2");
+        })
+    </script>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>

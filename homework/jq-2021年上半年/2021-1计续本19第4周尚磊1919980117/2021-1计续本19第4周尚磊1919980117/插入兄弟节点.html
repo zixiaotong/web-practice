@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>插入兄弟节点</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            //(1)
+            $("lable").before("<p>i</p>");
+            //(2)
+            $("span:eq(0)").before($("lable"));
+            //(3)
+            $("span").before($("<p>strong</p>"));
+        })
+    </script>
+</head>
+
+<body>
+<p id="n1">
+    <span id="n2">span#n2</span>
+</p>
+<p id="n3">
+    <lable id="n4" class="move">lable#n4</lable>
+</p>
+<p id="n5">
+    <span id="n6">span#n6</span>
+</p>
+</body>
+</html>

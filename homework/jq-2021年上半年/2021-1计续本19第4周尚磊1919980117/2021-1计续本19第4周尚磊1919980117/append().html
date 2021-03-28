@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>append()</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("p").append($("img:eq(0)"));
+            $("p:eq(0)").append($("img:eq(1)"));
+        })
+    </script>
+</head>
+
+<body>
+<img src="images/08.jpg">
+<img src="images/09.jpg">
+<hr/>
+<p><img src="images/10.jpg"></p>
+<p><img src="images/10.jpg"></p>
+<p><img src="images/10.jpg"></p>
+</body>
+</html>

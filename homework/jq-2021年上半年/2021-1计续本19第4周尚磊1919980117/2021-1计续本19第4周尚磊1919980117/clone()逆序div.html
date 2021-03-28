@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>clone()逆序div</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            var aDiv = $("div").get().reverse();
+            $(aDiv).each(function () {
+                $(document.body).append($(this).clone());
+            })
+        })
+    </script>
+    <style>
+        .div1 {
+            width: 40px;
+            height: 40px;
+            background: #ff0000;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .div2 {
+            width: 40px;
+            height: 40px;
+            background: #00ff00;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .div3 {
+            width: 40px;
+            height: 40px;
+            background: #0000ff;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="div1">1</div>
+<div class="div2">2</div>
+<div class="div3">3</div>
+</body>
+</html>

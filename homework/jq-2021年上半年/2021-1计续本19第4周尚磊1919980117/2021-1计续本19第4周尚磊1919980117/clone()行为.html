@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>clone()行为</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("input").click(function () {
+                $(this).clone(true).insertBefore($(this));
+            })
+        })
+    </script>
+</head>
+
+<body>
+<div>
+    <input type="button" value="Clone Me"/>
+</div>
+</body>
+</html>

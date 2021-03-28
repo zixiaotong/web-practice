@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>星星评分</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <style>
+        #grade {
+            height: 28px;
+            margin: 10px auto;
+        }
+
+        #grade li {
+            width: 27px;
+            height: 28px;
+            background: url("images/star.gif") no-repeat 0 0;
+            cursor: pointer;
+            list-style: none;
+            float: left;
+        }
+
+        #grade li.select {
+            background: url("images/star.gif") no-repeat 0 -29px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#grade li").each(function (index) {
+                this.flag = false;
+                $(this).mouseover(function () {
+                    $(this).addClass("select");
+                })
+                $(this).mouseout(function () {
+                    if (this.flag != "true") {
+                        $(this).removeClass("select");
+                    }
+                })
+
+                $(this).click(function () {
+                    if (this.flag == "true") {
+                        this.flag = "false";
+                        $(this).removeClass("select");
+                    } else {
+                        this.flag = "true";
+                        $(this).addClass("select");
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+<div id="grade">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>
