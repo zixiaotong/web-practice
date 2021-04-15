@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>星星评分-完整</title>
+    <style>
+        #grade {
+            width: 235px;
+            height: 28px;
+            margin: 10px auto;
+        }
+
+        #grade li {
+            width: 27px;
+            height: 28px;
+            background: url("images/star.gif") no-repeat 0 0;
+            cursor: pointer;
+            list-style: none;
+            float: left;
+        }
+
+        #grade li.select {
+            background: url("images/star.gif") no-repeat 0 -29px;
+        }
+    </style>
+
+    <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#grade li").each(function (index) {
+                $(this).attr('flag', 'F');
+                $(this).mouseover(function () {
+                    $(this).addClass('select').prevAll().addClass('select');
+                })
+                $(this).mouseout(function () {
+                    if ($(this).attr('flag') != "T") {
+                        $(this).removeClass("select").nextAll().removeClass('select');
+                    }
+                })
+                $(this).click(function () {
+                    if ($(this).attr('flag') == 'T') {
+                        $(this).nextAll().removeClass('select').attr('flag', 'F');
+                    } else {
+                        i = 0;//点亮星星初始化i为0
+                        $(this).addClass('select').attr('flag', 'T');
+                        $(this).prevAll().each(function (index, element) {
+                            $(this).addClass('select');
+                            $(this).attr('flag', 'T');
+                        });
+                    }
+                    //$(this).index()为0时说明点击的是第一颗星星，第一次点击i为0星星保持亮,第二次点击i为1星星灭掉
+                    if ($(this).index() == 0 && i <= 1) {
+                        i++;
+                    }
+                    //alert(i);
+                    if ($(this).index() == 0 && i > 1) {
+                        $(this).removeClass('select');
+                        $(this).attr('flag', 'F');
+                        i = 0;
+                    }
+                })
+            });
+        })
+    </script>
+</head>
+
+<body>
+<div id="grade">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

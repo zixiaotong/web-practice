@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border: 1px solid #038E1B;
+            float: left;
+            line-height: 50px;
+            text-align: center
+        }
+    </style>
+
+    <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            for (var i = 1; i < 10; i++) { //创建10个div
+                $(document.body).append($("<div>click<br>Me!</div>"));
+            }
+            var iCounter = 1;
+            $("div").on("click", function () {
+                $(this).css({background: "blue", color: "yellow"}).html("elick!<br>" + (iCounter++));
+            });
+        });
+    </script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>拖拽</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background: #ccc;
+            border: 1px solid black;
+            position: absolute
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            var disX = 0, disY = 0;
+            $("div").mousedown(function (ev) {
+                disX = ev.pageX - $(this).offset().left;
+                disY = ev.pageY - $(this).offset().top;
+
+                $(document).mousemove(function (ev) {
+                    $("div").css("left", ev.pageX - disX);
+                    $("div").css("top", ev.pageY - disY);
+                });
+                $(document).mouseup(function () {
+                    $(this).off("mousemove");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>

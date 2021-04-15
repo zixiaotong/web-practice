@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>订餐</title>
+    <style type="text/css">
+        <!--
+        body {
+            padding: 0px;
+            margin: 165px 0px 0px 160px;
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #FFFFFF;
+            background: #000000 url("images/bg2.jpg") no-repeat;
+        }
+
+        body > div {
+            margin: 15px;
+            padding: 0px;
+        }
+
+        div.detail {
+            display: none;
+            margin: 10px 0px 2px 15px;
+        }
+
+        div#totalPrice {
+            padding: 10px 0px 0px 280px;
+            margin-top: 15px;
+            width: 100px;
+            border-top: 1px solid #FFFFFF;
+        }
+
+        input {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 1px solid #CCCCCC;
+            background: #3f1415;
+            color: #FFFFFF;
+            width: 20px;
+            text-align: left;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $(":text").attr("disabled", true);
+            $("div>:checkbox")
+            $("div").children(0).click(function () {
+                if ($(this).prop("checked") == true) {
+                    $(this).nextAll("div").show();
+                } else {
+                    $(this).nextAll("div").hide().find(":checkbox").prop("checked", false)
+                    $(this).nextAll("div").hide().find(":text").val("").attr("disabled", true)
+                }
+            })
+
+            $("div.detail").find(":checkbox").click(function () {
+                if ($(this).is(":checked")) {
+                    $(this).parents("tr").find(":text").attr("disabled", false).val(1).focus();
+                    getTotalPrice();
+                } else {
+                    $(this).parents("tr").find(":text").attr("disabled", true).val("");
+                    getTotalPrice();
+                }
+            })
+
+            $(":text").keyup(function () {
+                getTotalPrice();
+            });
+
+            $(":text").change(function () {
+                if ($(this).val() == "") {
+                    $(this).parents("tr").find(":checkbox").prop("checked", false);
+                    $(this).parents("tr").find(":text").attr("disabled", true);
+                }
+            })
+        })
+
+        function getTotalPrice() {
+            var sum = 0;
+            $("td").children(":checkbox:checked").each(function () {
+                var price = parseFloat($(this).parents("tr").find("span").html());
+                var number = parseInt($(this).parents("tr").find(":text").val());
+                if (isNaN(number)) {
+                    number = 0;
+                }
+                sum += price * number;
+            })
+            $("#totalPrice").find("span").html(sum.toFixed(2));
+            $("span:last")
+        }
+    </script>
+</head>
+<body>
+<div>
+    1. <input type="checkbox" id="LiangCaiCheck">
+    <label for="LiangCaiCheck">凉菜</label>
+    <div class="detail">
+        <table>
+            <tr>
+                <td><input type="checkbox" name="LiangCai">拍黄瓜</td>
+                <td>￥<span>5.00</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="LiangCai">香油豆角</td>
+                <td>￥<span>6.50</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="LiangCai">特色水豆腐</td>
+                <td>￥<span>5.50</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="LiangCai">香芹醋花生</td>
+                <td>￥<span>6.00</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div>
+    2. <input type="checkbox" id="SuCaiCheck"><label for="SuCaiCheck">素菜</label>
+    <div class="detail">
+        <table>
+            <tr>
+                <td><input type="checkbox" name="SuCai">虎皮青椒</td>
+                <td>￥<span>11.00</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="SuCai">醋溜土豆丝</td>
+                <td>￥<span>8.50</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="SuCai">金勾豆芽</td>
+                <td>￥<span>7.50</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div>
+    3. <input type="checkbox" id="HunCaiCheck"><label for="HunCaiCheck">荤菜</label>
+    <div class="detail">
+        <table>
+            <tr>
+                <td><input type="checkbox" name="HunCai">麻辣肉片</td>
+                <td>￥<span>11.00</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="HunCai">红烧牛柳</td>
+                <td>￥<span>8.50</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="HunCai">糖醋里脊</td>
+                <td>￥<span>7.50</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div>
+    4. <input type="checkbox" id="SoupCheck"><label for="SoupCheck">热汤</label>
+    <div class="detail">
+        <table>
+            <tr>
+                <td><input type="checkbox" name="Soup">西红柿鸡蛋汤</td>
+                <td>￥<span>5.00</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="Soup">南瓜汤</td>
+                <td>￥<span>6.50</span>元</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="totalPrice">合计￥<span>0.00</span>元</div>
+<div id="shoppingcart"></div>
+</body>
+</html>
