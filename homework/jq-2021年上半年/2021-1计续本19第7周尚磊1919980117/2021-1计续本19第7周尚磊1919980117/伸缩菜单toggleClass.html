@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>伸缩菜单toggleClass</title>
+    <style>
+        <!--
+        body {
+            background-color: #ffdee0;
+        }
+
+        #navigation {
+            width: 200px;
+            font-family: Arial;
+        }
+
+        #navigation > ul {
+            list-style-type: none; /* 不显示项目符号 */
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #navigation > ul > li {
+            border-bottom: 1px solid #ED9F9F; /* 添加下划线 */
+        }
+
+        #navigation > ul > li > a {
+            display: block; /* 区块显示 */
+            padding: 5px 5px 5px 0.5em;
+            text-decoration: none;
+            border-left: 12px solid #711515; /* 左边的粗红边 */
+            border-right: 1px solid #711515; /* 右侧阴影 */
+        }
+
+        #navigation > ul > li > a:link, #navigation > ul > li > a:visited {
+            background-color: #c11136;
+            color: #FFFFFF;
+        }
+
+        #navigation > ul > li > a:hover { /* 鼠标经过时 */
+            background-color: #990020; /* 改变背景色 */
+            color: #ffff00; /* 改变文字颜色 */
+        }
+
+        /* 子菜单的CSS样式 */
+        #navigation ul li ul {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px 0px 0px 0px;
+        }
+
+        #navigation ul li ul li {
+            border-top: 1px solid #ED9F9F;
+        }
+
+        #navigation ul li ul li a {
+            display: block;
+            padding: 3px 3px 3px 0.5em;
+            text-decoration: none;
+            border-left: 28px solid #a71f1f;
+            border-right: 1px solid #711515;
+        }
+
+        #navigation ul li ul li a:link, #navigation ul li ul li a:visited {
+            background-color: #e85070;
+            color: #FFFFFF;
+        }
+
+        #navigation ul li ul li a:hover {
+            background-color: #c2425d;
+            color: #ffff00;
+        }
+
+        #navigation ul li ul.myHide { /* 隐藏子菜单 */
+            display: none;
+        }
+
+        #navigation ul li ul.myShow { /* 显示子菜单 */
+            display: block;
+        }
+
+        -->
+    </style>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            $("li").find("ul").prev().click(function () {
+                $(this).next().toggleClass("myShow");
+            })
+        })
+    </script>
+</head>
+
+<body>
+<div id="navigation">
+    <ul id="listUL">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a>
+            <ul class="myHide">
+                <li><a href="#">Lastest News</a></li>
+                <li><a href="#">All News</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Sports</a>
+            <ul class="myHide">
+                <li><a href="#">Basketball</a></li>
+                <li><a href="#">Football</a></li>
+                <li><a href="#">Volleyball</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Weather</a>
+            <ul class="myHide">
+                <li><a href="#">Today's Weather</a></li>
+                <li><a href="#">Forecast</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Contact Me</a></li>
+    </ul>
+</div>
+</body>
+</html>

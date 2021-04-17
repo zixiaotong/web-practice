@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动提示文本框-客户端-jq</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+            var aColors = ["red", "green", "blue", "magenta", "yellow", "chocolate", "black", "aquamarine", "lime", "fuchsia", "brass", "azure", "brown", "bronze", "deeppink", "aliceblue", "gray", "copper", "coral", "feldspar", "orange", "orchid", "pink", "plum", "quartz", "purple", "antiquewith", "blanchedalmond", "blueviolet", "beige", "burlywood", "bisque", "cadetblue", "saddlebrown", "royalblue", "rosybrown", "orengered", "olivedrab", "powderblue", "peachpuff", "papayawhip", "paleturquoise", "palevioletred", "palegreen", "navyblue", "navajowhite", "palegodenrod", "violetred", "yellowgreen", "tomato", "turquoise", "thistle", "springgreen", "steelblue", "salmon", "scarlet", "silver", "violet", "snow", "tan", "chartreuse", "khaki", "mediumslateblue", "mediumvioletred", "oldlace", "maroom", "goldenrod", "wheat", "whitesmoke", "moccasin", "mistyrose", "mintcream", "midnightblue", "dimgray", "darksalmon", "slategray", "skyblue", "sienna", "seashell", "seagreen", "sandybrown", "gold", "mediumturquoise", "navy", "mediumspringgreen", "mediumseagreen", "mediumpurpul", "peru", "mediumorchid", "mediumblue", "mediumaquamarine", "maroon", "limegreen", "lightyellow", "lightsteelblue", "magenta", "lightslateblue", "lightslategray", "lightskyblue", "inen", "lightseagreen", "lightsalmon", "lightpink", "lightgray", "lightgreen", "lightgodenrodyellow", "indianred", "lavender", "lightblue", "lavenderblush", "lightcoral", "lightcyan", "lightgodenrod", "hotpink", "greenyellow", "lemonchiffon", "lawngreen", "deepskyblue", "honeydew", "golenrod", "forestgreen", "gostwhite", "gainsboro", "firebrick", "dodgerblue", "darkturquoise", "darkslateblue", "darkslategray", "darkseagreen", "darkred", "darkorchid", "darkorenge", "darkviolet", "floralwhite", "cyan", "darkgray", "cornsilk", "darkolivegreen", "darkgoldenrod", "darkblue", "darkcyan", "darkgreen", "darkhaki", "ivory", "darkmagenta", "cornfloewrblue"];
+            aColors.sort();
+            $("#colors").keyup(function () {
+                if ($("#colors").val().length > 0) {
+                    var aResult = [];
+                    for (var i = 0; i < aColors.length; i++) {
+                        if (aColors[i].indexOf($("#colors").val()) == 0) {
+                            aResult.push(aColors[i]);
+                        }
+                    }
+                    if (aResult.length > 0) {
+                        showColors(aResult);
+                    } else {
+                        clearColors();
+                    }
+                } else {
+                    clearColors();
+                }
+            })
+
+            function showColors(aResult) {
+                clearColors();
+                $("#popup").addClass("show");
+                var sChildren = "";
+                $(aResult).each(function () {
+                    sChildren += "<li>" + this + "</li>";
+                })
+                $("#colors_ul").append(sChildren);
+                $("li").click(function () {
+                    $("#colors").val($(this).html());
+                    clearColors();
+                })
+                $("li").on({
+                    'mouseover': function () {
+                        $(this).addClass('mouseOver');
+                    },
+                    'mouseout': function () {
+                        $(this).removeClass('mouseOver');
+                    }
+                });
+            }
+
+            function clearColors() {
+                $("#colors_ul").empty();
+                $("#popup").removeClass("show");
+            }
+        })
+    </script>
+    <style>
+        <!--
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            padding: 0px;
+            margin: 5px;
+        }
+
+        form {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        input {
+            /* 用户输入框的样式 */
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            border: 1px solid #000000;
+            width: 200px;
+            padding: 1px;
+            margin: 0px;
+        }
+
+        #popup {
+            /* 提示框div块的样式 */
+            position: absolute;
+            width: 202px;
+            color: #004a7e;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 41px;
+            top: 25px;
+        }
+
+        #popup.show {
+            /* 显示提示框的边框 */
+            border: 1px solid #004a7e;
+        }
+
+        /* 提示框的样式风格 */
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            color: #004a7e;
+        }
+
+        li.mouseOver {
+            background-color: #004a7e;
+            color: #FFFFFF;
+        }
+
+        -->
+    </style>
+
+</head>
+<body>
+<form method="post" name="myForm1">
+    Color: <input type="text" name="colors" id="colors"/>
+</form>
+<div id="popup">
+    <ul id="colors_ul"></ul>
+</div>
+</body>
+</html>

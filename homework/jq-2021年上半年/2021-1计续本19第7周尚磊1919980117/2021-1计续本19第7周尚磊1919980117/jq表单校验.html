@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jq表单校验</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        $(function () {
+
+            $("#input").click(function () {
+                var oInput = $("#user");
+                if (!oInput.value) {
+                    oInput.focus;
+                    document.getElementById("userResult").innerHTML = "User cannot be empty";
+                    return;
+                }
+
+                $.ajax({
+                    url: "9-9ajax.aspx",
+                    data: {user: oInput.value},
+                    type: "get",
+                    success: function (data) {
+                        var oSpan = document.getElementById("userResult");
+                        oSpan.innerHTML = data;
+                        if (data.indexOf("already exists") >= 0) {
+                            oSpan.style.color = "red";
+                        } else {
+                            oSpan.style.color = "black";
+                        }
+                    }
+                });
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+
+<table cellpadding="3" cellspacing="5" border="0">
+    <tr>
+        <td>username：</td>
+        <td><input type="text" id="user" name="user"/></td>
+        <td><span id="userResult"></span></td>
+    </tr>
+    <tr>
+        <td>enter password:</td>
+        <td><input type="text" name="password1"/></td>
+
+    </tr>
+    <tr>
+        <td>confirm password:</td>
+        <td><input type="text" name="password2"/></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="registe" id="input">
+            <input type="reset" value="reset">
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

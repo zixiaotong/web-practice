@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>自动提示文本框-jq-$get</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+        var oInputField;
+        var oPopDiv;
+        var oColorsUI;
+
+        $("#colors").keyup(function () {
+            initVars();
+            if (oInputField.val() > 0) {
+                $.get("14-10.aspx", {sColor: oInputField.val()},
+                    function (data) {
+                        var aResult = new Array();
+                        if (data.length > 0) {
+                            aResult = data.split(",");
+                            setColors(aResult);
+                        } else {
+                            clearColors();
+                        }
+                    }
+                );
+            } else {
+                clearColors();
+            }
+        })
+
+        function initVars() {
+            oInputField = $("#colors");
+            oPopDiv = $("#popup");
+            oColorsUI = $("#colors_ul");
+        }
+
+        function clearColors() {
+            $("#colors_ul").empty();
+            $("#popup").removeClass("show");
+        }
+
+        function setColors(the_colors) {
+            clearColors();
+            oPopDiv.addClass("show");
+            $(the_colors).each(function (index) {
+                oColorsUI.append($("<li>" + the_colors[index] + "</li>"));
+            })
+            oColorsUI.find("li").click(function () {
+                oInputField.val($(this).text());
+                clearColors();
+            }).hover(function () {
+                $(this).toggleClass("mouseOver");
+            });
+        }
+    </script>
+    <style>
+        <!--
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            padding: 0px;
+            margin: 5px;
+        }
+
+        form {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        input {
+            /* 用户输入框的样式 */
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            border: 1px solid #000000;
+            width: 200px;
+            padding: 1px;
+            margin: 0px;
+        }
+
+        #popup {
+            /* 提示框div块的样式 */
+            position: absolute;
+            width: 202px;
+            color: #004a7e;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            left: 41px;
+            top: 25px;
+        }
+
+        #popup.show {
+            /* 显示提示框的边框 */
+            border: 1px solid #004a7e;
+        }
+
+        /* 提示框的样式风格 */
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            color: #004a7e;
+        }
+
+        li.mouseOver {
+            background-color: #004a7e;
+            color: #FFFFFF;
+        }
+
+        -->
+    </style>
+
+</head>
+<body>
+<form method="post" name="myForm1">
+    Color: <input type="text" name="colors" id="colors"/>
+</form>
+<div id="popup">
+    <ul id="colors_ul"></ul>
+</div>
+</body>
+</html>
