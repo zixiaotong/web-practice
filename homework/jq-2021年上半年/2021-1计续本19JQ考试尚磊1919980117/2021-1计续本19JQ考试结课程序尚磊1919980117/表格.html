@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+</body>
+</html>
+<head>
+    <meta charset="utf-8">
+    <title>jq结课作业</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //点击列表查看时添加事件
+            $(".chakan").click(function () {
+                $('<div class="mask"></div>').appendTo($("body"));// 组装一个空的div遮罩，并拼装到body后面
+                $("div.mask").css({ // 通过基本选择器的类选择器为新建的div 设置css样式
+                    "background": "#000",// 设置遮罩的背景颜色
+                    "opacity": 0.1, // 设置遮罩的透明度
+                    "position": "absolute", // 设置遮罩的绝对定位
+                    "left": "0px",// 设置遮罩的距离左部为0像素
+                    "top": "0px",// 设置遮罩的距离头部为0像素
+                    "width": $(document).width(),// 设置遮罩的宽
+                    "height": $(document).height()// 设置遮罩的高
+                });
+                var arr = [];//创建空数组来存放当前行内容
+                $(this).parent().siblings().each(function () {
+                    arr.push($(this).text());//把当前行内容存进数组
+                })
+                $(".mydiv").show().children().each(function (i) { //通过基本选择器的类选择器控制类展示并遍历
+                    $(this).children("span").text(arr[i])// 遍历span，并按照角标值把内容放到span里
+                })
+            })
+            $(".del").click(function () {//通过基本选择器的类选择器绑定点击事件。
+                $(this).parents("tr").remove();//拿到整行tr 删除
+            })
+            $(".down").click(function () {//通过基本选择器的类选择器绑定事件
+                $(this).parent().hide();// 点关闭时，隐藏当前div
+                $(".mask").remove();// 并删除遮罩
+            })
+        })
+    </script>
+    <style type="text/css">
+        #table {
+            width: 700px; /* 设置表宽*/
+            border-collapse: collapse; /* 表格设置合并边框 */
+            margin: 10px auto; /* 距离上方10个像素，左右居中*/
+        }
+
+        #table th, #table td {
+            border: 2px solid #abcdef; /* 设置边框的宽度并且设置颜色*/
+            text-align: center; /* 设置文本居中对齐*/
+        }
+
+        div.mydiv {
+            width: 330px; /* 设置弹窗内容的宽*/
+            padding: 20px; /* 设置内边距为20*/
+            position: relative; /* 设置定位为相对定位*/
+            left: 40%; /* 弹窗距离左边位置的百分之40*/
+            z-index: 3; /* 设置堆叠顺序，让弹窗展示*/
+            display: none; /* 隐藏内容弹窗*/
+            background: #fff; /* 设置背景颜色*/
+            border: 2px solid #abcdef; /* 设置边框的宽度并且设置颜色*/
+        }
+    </style>
+</head>
+<body>
+<table id="table"> <!--创建表头-->
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>功能</th>
+    </tr>
+    <tr> <!--内容行-->
+        <td>小上</td>
+        <td>27</td>
+        <td><a href="#" class="chakan">查看</a>&nbsp;<a href="#" class="del">删除</a></td> <!--使用两个a标签写查看和删除功能-->
+    </tr>
+</table>
+<div class="mydiv"> <!--点击查看的弹窗内容-->
+    <p><strong>姓名</strong>:<span></span></p><!--弹窗里展示的字段信息-->
+    <p><strong>年龄</strong>:<span></span></p>
+    <button class="down">关闭</button><!--弹窗的关闭按钮-->
+</div>
+</body>
+</html>
